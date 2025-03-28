@@ -1,7 +1,15 @@
 
 /* GENERAL */
-
+h1{
+  color: white;
+}
+h2{
+  color: white;
+}
 h3{
+  color: white;
+}
+.p{
   color: white;
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
