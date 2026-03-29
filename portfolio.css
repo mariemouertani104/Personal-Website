@@ -197,6 +197,7 @@ section {
   align-items: center;
   gap: 5rem;
   height: 84vh;
+  padding: 0 5rem;
 }
 
 .section__pic-container {
@@ -204,8 +205,7 @@ section {
   height: 400px;
   width: 400px;
   flex-shrink: 0;
-  margin: 0 auto;
-  overflow: hidden;
+  margin: auto 0;
 }
 
 /* Centrage uniquement pour la photo About */
