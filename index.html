@@ -1,0 +1,961 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mariem_ouertani</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="particles.css">
+    <link rel="icon" href="insat.png">
+</head>
+<body>
+    <div class="intro">
+        <h1 class="logo-header">
+          <span class="intrologo ">Mar</span>
+          <span class="intrologo ">iem</span>
+        </h1>
+      </div>
+     <div id="particles-js"><canvas class="particles-js-canvas-el" width="1600" height="1000" style="width: 100%; height: 100%;"></canvas></div>
+     <nav id="desktop-nav"> 
+        <div>
+          <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education&H.Skills</a></li>
+          <li><a href="#soft">S.Skills</a></li>
+        
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#organizations">Volunteering</a></li>
+          <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+      <nav id="hamburger-nav">
+        <div class="logo" style="color: white;">Mariem Ouertani</div>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links ">
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#education" onclick="toggleMenu()">Education&H.Skills</a></li>
+            <li><a href="#soft" onclick="toggleMenu()">S.Skills</a></li>
+           
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#experience" onclick="toggleMenu()"> Experience</a></li>
+            <li><a href="#organizations" onclick="toggleMenu()">Organizations</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </nav>
+      <section id="profile">
+        <div class="section__pic-container">
+            <img src="mariem photo.jpg" class="img_me" alt="mariem profile picture">
+          </div>
+        <div class="section__text">
+          <p class="section__text__p1">Welcome! I'm</p>
+          <h1 class="title" style="color:white;">Mariem Ouertani</h1>
+          <p class="section__text__p2">  ICT & Software Engineering Student</p>
+          <div class="btn-container">
+            <button class="btn btn-color-2" onclick="location.href='Resume 03-2026.pdf';" download="Resume 03-2026.pdf" >
+              Download Resume
+            </button>
+            <button class="btn btn-color-2" onclick="location.href='Mariem_Ouertani_CV_Resume_2026-03.pdf';" download="Mariem_Ouertani_CV_Resume_2026-03.pdf" >
+              télécharger le CV 
+            </button>
+            <button class="btn btn-color-2" onclick="location.href='#contact'">
+              Contact Info
+            </button>
+          </div>
+          <br>
+          <p class="section__text__p3">Connect with me on social media</p>
+          <br>
+          <d id="socials-container">
+            <img src="linkedin.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/?trk=opento_sprofile_details'"> 
+          <img src="gt.png" alt="My GitHub account" class="icon" onclick="location.href='https://github.com/mariemouertani104'"> 
+          <img src="drrr.png" alt="My   parortfolio" class="icon" onclick="location.href='https://drive.google.com/drive/folders/1qR106V_O8rXrkft0UR04ymitMivaQoqY?usp=drive_link'"> </div>
+          
+
+      </div>
+      </section>
+
+      <section id="about">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+          <div class="section__pic-container">
+            <img src="me.png"   alt="Profile picture" class="about-pic">
+          </div>
+          <div class="about-details-container">
+            <div class="about-containers">
+              <div class="details-container  text-container">
+                
+                <p>Autonomous and motivated individual, oriented towards achieving objectives.
+                  <br> Passionate about technology, with excellent academic results and associative involvement.
+                  <br>Currently a first year Engineering student in Computer Networks and Telecommunications at 
+                  the National Institute of Applied Sciences and Technology (INSAT).
+                  <br>My drive to learn is continuous and has led me to acquire several professional certifications from leaders like AWS, Cisco, IBM, and Google.
+                  <br>Experience in Web development (front end), passion for AI and interest in DevOps and cloud computing.
+                  <br>Beyond my academic pursuits, I am actively engaged in campus life and civic initiatives. As a member of organizations like IEEE and Junior Entreprise, I’ve had the opportunity to participate in numerous events, conferences, and workshops.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <p class="section__text__p1">Explore More About My</p>
+        <h1 class="title">Learning Path </h1>
+        <p class="section__text__p1">and my</p>
+        <h1 class="title"> Technical Skills </h1>
+        <div class="education-details-container">
+            <div class="about-containers">
+            <div class="details-container">
+              <div class="article-container">
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Diploma of Computer Networks and Telecommunications Engineering</h3>
+                    <p> expected in 2028
+
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Preparatory Class of Computer Networks and Telecommunications Engineering</h3>
+                    <p>  with honors
+                      <br>Moy : 14/20
+                      <br>Rank: 3/86
+                    </p>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>MPI Integrated preparatory cycle </h3>
+                    <p>with honors</p>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3> Baccalaureat in Experimental Sciences</h3>
+                    <p>  very good mention
+                      <br>Moy : 17.58/20
+                      <br>Rank: 309/13603 ( top 2.27% at the national level)
+                    </p>
+                  </div>
+                </article>
+                
+                
+            </div>
+        </div>
+        
+        </div>
+         <div class="details-container">
+              <div class="article-container">
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Maths</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Analytics</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Linear Algebra</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Statics & Probabilities</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Algoritms</h3>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="about-containers">
+            <div class="details-container">
+              <div class="article-container">
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3> Advanced Python</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Numpy</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Java</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>JEE/SpringBoot</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>C/C++</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Oriented Object Programmation</h3>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="details-container">
+              <div class="article-container">
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>HTML5</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>CSS3</h3>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Bootstrap</h3>
+                  </div>
+                </article>
+                <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>JavaScript,jQuery,ReactJS</h3>
+                    </div>
+                  </article>
+                  <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>PHP,Symphony</h3>
+                    </div>
+                  </article>
+                  <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>UX/UI</h3>
+                    </div>
+                  </article>
+              </div>
+            </div>
+          </div>
+          <div class="about-containers">
+            <div class="details-container">
+              <div class="article-container">
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>AI</h3>
+                    <p>Fundamentals</p>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Machine Learning</h3>
+                    <p>Fundamentals</p>
+                  </div>
+                </article>
+                <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>Deep Learning</h3>
+                      <p>Fundamentals</p>
+                    </div>
+                  </article>
+                  <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>NLP</h3>
+                      <p>Fundamentals</p>
+                    </div>
+                  </article>
+                  <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>LLM</h3>
+                      <p>Fundamentals</p>
+                    </div>
+                  </article>
+                  <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>Computer Vision</h3>
+                      <p>Fundamentals</p>
+                    </div>
+                  </article>
+                  <article>
+                    <img src="checkmark.png" alt="Experience icon" class="icon">
+                    <div>
+                      <h3>AI agents</h3>
+                      <p>Fundamentals</p>
+                    </div>
+                  </article>
+                  
+              </div>
+            </div>
+            <div class="details-container">
+            <div class="article-container">
+              <article>
+                <img src="checkmark.png" alt="Experience icon" class="icon">
+                <div>
+                  <h3>ICT</h3>
+                 
+                </div>
+              </article>
+              <article>
+                <img src="checkmark.png" alt="Experience icon" class="icon">
+                <div>
+                  <h3>IOT</h3>
+                  <p>Fundamentals</p>
+                </div>
+              </article>
+               <article>
+                <img src="checkmark.png" alt="Experience icon" class="icon">
+                <div>
+                  <h3>Smart devices</h3>
+                  <p>Fundamentals of developing smart devices</p>
+                </div>
+              </article>
+              <article>
+                <img src="checkmark.png" alt="Experience icon" class="icon">
+                <div>
+                  <h3>Networks</h3>
+                 <p>CCNA1, CCNA2, CCNA3 </p>
+                </div>
+              </article>
+
+              <article>
+                <img src="checkmark.png" alt="Experience icon" class="icon">
+                <div>
+                  <h3>Wifi, 5G</h3>
+                </div>
+              </article>
+
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>DevOps</h3>
+                    <p>Fundamentals</p>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Cloud computing</h3>
+                    <p>Fundamentals</p>
+                  </div>
+                </article>
+                <article>
+                  <img src="checkmark.png" alt="Experience icon" class="icon">
+                  <div>
+                    <h3>Linux</h3>
+                    <p>Fundamentals</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="about-containers">
+                <div class="details-container">
+                  <div class="article-container">
+                   
+                    <article>
+                      <img src="checkmark.png" alt="Experience icon" class="icon">
+                      <div>
+                        <h3>Data Bases Administration</h3>
+                      </div>
+                    </article>
+                    <article>
+                      <img src="checkmark.png" alt="Experience icon" class="icon">
+                      <div>
+                        <h3>Data Exploratary</h3>
+                      </div>
+                    </article>
+                    <article>
+                        <img src="checkmark.png" alt="Experience icon" class="icon">
+                        <div>
+                          <h3>SQL</h3>
+                        </div>
+                      </article>
+                  </div>
+                </div>
+        </div>
+      </section>
+
+      <section id="soft">
+        <p class="section__text__p1">Get to know More About My</p>
+        <h1 class="title">Soft Skills</h1>
+        <div class="soft-details-container">
+          
+            <div class="details-containers">
+                <div class="about-containers">
+                <div class="article-container">
+                    <article>
+                     
+                      <div>
+                        <h3>Agile Scrum &Kanban Method</h3>
+                      </div>
+                    </article>
+                    <article>
+                      
+                      <div>
+                        <h3>Team working &Communication</h3>
+                      </div>
+                    </article>
+                    <article>
+                      
+                      <div>
+                        <h3> Critical Thinking &Problem solving</h3>
+                      </div>
+                    </article>
+
+                    
+                    <article>
+                      
+                      <div>
+                        <h3>Self Confidance  </h3>
+                      </div>
+                    </article>
+                  
+                    </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <br>
+
+
+
+
+    </section>
+
+<section id="projects">
+  <p class="section__text__p1">Browse My Recent</p>
+  <h1 class="title">Projects</h1>
+
+  <div class="experience-details-container">
+    <div class="about-containers">
+      <div class="details-container color-container ppp-featured-row">
+        
+        
+
+          <div class="article-container ppp-image-small">
+          <img src="ppp.png" alt="Adversarial Neural Cryptography" class="project-img-contain">
+        </div>
+          <div class="ppp-text-details">
+          <h2 class="experience-sub-title project-title">Adversarial Neural Cryptography (GANs)</h2>
+          <p class="project-description">
+            Implémentation de l'architecture <strong>Alice-Bob-Eve</strong> basée sur les recherches de Google Brain. 
+            Conception d'un système de chiffrement de bout en bout où deux réseaux de neurones apprennent à 
+            sécuriser leurs communications par entraînement adversarial, sans algorithmes classiques.
+          </p>
+          
+          <div class="project-tags">
+            <span class="tag">Deep Learning</span>
+            <span class="tag">GANs</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Cybersecurity</span>
+          </div>
+          
+          <p class="stack-text"><strong>Stack:</strong> Python, PyTorch, NumPy, Scikit-learn.</p>
+
+          <div class="btn-container ppp-btn">
+            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/PPP_Adversarial_Neural_Cryptography.git'">
+              Github
+            </button>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+
+      <br>
+
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="rp.png"  class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Cybersecurity Audit & Mobile Traffic Analysis (Android)</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet-de-R-seaux-IP.git'">
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="sd.png"  class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Smart Agri-Sensor:IoT & Edge AI Solution</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Smart-device-project.git'">
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="ro.png" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title"> Supply Chain Optimization Dashboard (Operations Research) </h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet-de-recherche-operationnelle.git'">
+                Github
+              </button>
+             
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="uml.png"  class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">EduNet-Family</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/EduNet-Family.git'">
+                Github
+              </button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <br>
+
+      <div class="experience-details-container">
+        <div class="about-containers">
+           <div class="details-container color-container">
+            <div class="article-container">
+              <img src="j.jpg" alt="
+Gestion de Robots de Connexion et Livraison Écologique" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">
+Gestion de Robots de Connexion et Livraison Écologique</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet_Java_gestionRobots.git'">
+                Github
+              </button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://drive.google.com/file/d/1hHtuVnHnvnvdj6XUmtRScw6Y7NuuZJzX/view?usp=drive_link'">
+                Live Demo
+              </button>
+            </div>
+          </div>
+
+           <div class="details-container color-container">
+            <div class="article-container">
+              <img src="t.jpg" alt="Communication Socket" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Communication Socket</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet-T-l-informatique.git'">
+                Github
+              </button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://drive.google.com/file/d/1ZXH-rMnULaVvdvYrxEN9Y9jghSU8zOOL/view?usp=drive_link'">
+                Live Demo
+              </button>
+            </div>
+          </div>
+
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="jcc.png" alt="jeu du chiffre caché" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Jeu du chiffre caché website</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/tp1/tree/main/ex1'">
+                Github
+              </button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://tp1-mariemouertani104s-projects.vercel.app/.'">
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="dk.png" alt="Drum Kit" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Drum Kit</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Drum-Kit'">
+                Github
+              </button>
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://drum-kit-tau-ten.vercel.app/'">
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <br>
+
+
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="ta.jpeg" alt="Travel Agency" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Travel Agency</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/agence-de-voyage.git'">
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="wk.jpeg" alt="Kitchen World" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Kitchen World</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/kitchen_world.git'">
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="dw.jpeg" alt="Dominos Website" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Dominos Website</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Restau.git'">
+                Github
+              </button>
+             
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img src="vh.jpeg" alt="Victoria Hotel Website" class="project-img">
+            </div>
+            <h2 class="experience-sub-title project-title">Victoria Hotel Website</h2>
+            <div class="btn-container">
+              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Hotel'">
+                Github
+              </button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section id="experience">
+  <p class="section__text__p1">Get to know More About My</p>
+  <h1 class="title">Experience</h1>
+  <div class="organisation-details-container">
+    <div class="about-containers">
+      
+      <!-- Experience Box 1 -->
+      <div class="org-details-container color-container">
+        <div class="article-container">
+          <img src="iliadephoto.png" alt="iliade consulting logo" class="organisation-img">
+        </div>
+        <h2 class="experience-sub-title project-title">RPA Developer, SAP Consultant</h2>
+        <div class="btn-container">
+          <p>Skills: RPA Development, Uipath Studio, SAP IS-U, Uipath TaskCapture</p>
+        </div>
+      </div>
+
+      <!-- Experience Box 2 -->
+      <div class="org-details-container color-container">
+        <div class="article-container">
+          <img src="ATB.png" alt="ATB logo" class="organisation-img">
+        </div>
+        <h2 class="experience-sub-title project-title">Client Servicing intern at ATB Bank</h2>
+        <div class="btn-container">
+          <p>Skills: professional communication</p>
+        </div>
+      </div>
+
+      <!-- Experience Box 3 -->
+      <div class="org-details-container color-container">
+        <div class="article-container">
+          <img src="cs.jpeg" alt="IEEE" class="organisation-img">
+        </div>
+        <h2 class="experience-sub-title project-title">CS chapter project member</h2>
+        <div class="btn-container">
+          <p>
+            Contributing in developing a website for the chapter as a FrontEnd Developer on the INSAT platform using ReactJS<br>
+            Skills: ReactJS, Team working
+          </p>
+        </div>
+      </div>
+
+      <!-- Experience Box 4 -->
+      <div class="org-details-container color-container">
+        <div class="article-container">
+          <img src="ju.jpeg" alt="JuniorEntreprise" class="organisation-img">
+        </div>
+        <h2 class="experience-sub-title project-title">JEI chapter project member</h2>
+        <div class="btn-container">
+          <p>Skills: web development, Team working, project management</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+      
+      <section id="organizations">
+        <p class="section__text__p1">Get To Know My</p>
+        <h1 class="title">Volunteering</h1>
+
+        <div class="organisation-details-container">
+          <div class="about-containers">
+            <div class="org-details-container color-container">
+              <div class="article-container">
+                <img src="ieee.jpeg"  alt="IEEE"  class="organisation-img">
+              </div>
+              <h2 class="experience-sub-title project-title">Member</h2>
+              <class="btn-container"><p>
+                  IEEE INSAT Student Branch</br>
+                  09/2023 Now INSAT, Tunis, Tunisia</br>
+                </br>
+
+                   Participation in several IEEE chapters, seeking continuous learning and professional development opportunities.
+                  </br> Engaging with IEEE courses and resources to broaden technical expertise.
+                </br>Building a strong professional network and contributing to the INSAT student branch, fostering strong collaborative relationships.
+              </p> </div>
+            </div>
+            
+
+          <div class="about-containers">
+            <div class="org-details-container color-container">
+              <div class="article-container">
+                <img src="cs.jpeg"  alt="CS"  class="organisation-img">
+              </div>
+              <h2 class="experience-sub-title project-title">Organisation Manager</h2>
+              <class="btn-container"><p>
+                  Spa'x:Student Professional Awarness by IEEE_Insat X IEEE_Enit
+                </br>
+                02/2024 -04/2024 INSAT, Tunis, Tunisia
+              </br>
+
+              </br>
+
+                Collaboration with the team and the project manager to optimize the “Suit ‘up” edition (Student professional awareness).
+                </br>Responsible for planning, organizing and managing the event schedule.
+              </br> Help students optimize their job search tools such as their CVs and LinkedIn profiles and prepare
+to job interviews.
+            </p></div>
+            </div>
+            <div class="about-containers">
+            <div class="org-details-container color-container">
+              <div class="article-container">
+                <img src="ju.jpeg" alt="JuniorEntreprise" class="organisation-img">
+              </div>
+  <h2 class="experience-sub-title project-title">Media Organisation Committee       </h2>
+              <class="btn-container"><p>
+                  Forum Junior Entreprise INSAT 2025 </br>
+                  11/2025 INSAT, Tunis, Tunisia </br>
+                </br>
+Coordinated radio appearances with local stations.
+<br>
+Spoke live on air to promote the event.
+<br>
+Acted as a spokesperson for the Media Team.                
+<br>
+Essential Contribution to Event Organization
+</p>
+<h2 class="experience-sub-title project-title">Organisation Committee Member      </h2>
+              <class="btn-container"><p>
+                  Seneca Hackathon </br>
+                  09/2025 INSAT, Tunis, Tunisia </br>
+                </br>
+  <h2 class="experience-sub-title project-title">Media Organisation Committee       </h2>
+              <class="btn-container"><p>
+                  Junior Challenge Rush 1.0 </br>
+                  04/2025 INSAT, Tunis, Tunisia </br>
+                </br>
+Creation of Impactful Video Content.
+<br>
+Development of Media and Influencer Relations.
+<br>
+Optimization of Radio Presence.
+<br>
+Essential Contribution to Event Organization.
+</p>
+
+
+              <h2 class="experience-sub-title project-title">Organisation Member       </h2>
+              <class="btn-container"><p>
+                  Forum Junior Entreprise INSAT 2024 </br>
+                  11/2024 INSAT, Tunis, Tunisia </br>
+
+                </br>
+
+                  Responsible for welcoming and managing workshop registrations.
+                </br>Contribution to the general organization of the event.
+              </p>
+
+              
+
+              </div>
+            </div>
+            <div class="about-containers">
+            <div class="org-details-container color-container">
+              <div class="article-container">
+                <img src="wie.jpeg" alt="IEEE" class="organisation-img">
+              </div>
+              <h2 class="experience-sub-title project-title">External Relations Member        </h2>
+              <class="btn-container"><p>
+                Human Library, IEEE WIE Affinity Group</br> 
+                11/2024-12/2024 INSAT, Tunis, Tunisia</br> 
+
+              </br>
+
+Identification and invitation of former INSAT students to share their experiences and professional advice.</p>
+            </div>
+            </div>
+
+            <div class="about-containers">
+            <div class="org-details-container color-container">
+              <div class="article-container">
+                <img src="tl.jpeg" alt="IEEE" class="organisation-img">
+              </div>
+              <h2 class="experience-sub-title project-title">Tomorrow Land Ambassador      </h2>
+              <class="btn-container"><p>
+                IEEE CS Chapter - ENSIT Student Branch</br> 
+                02/2025-03/2025 INSAT, Tunis, Tunisia</br>
+
+              </br>
+              
+              Representation of the Tomorrow Land event to university students.
+              Dissemination of information and promotion of the importance of participating in the event for learning AI, VR and AR
+            </br>Organization of an information session, sharing of publications and communication of necessary information.</p>
+          </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     <section id="contact">
+        <p class="section__text__p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+            <img src="email.png" alt="Email icon" class="icon contact-icon email-icon">
+            <p><a href="mailto:mariem.ouertani@insat.ucar.tn">mariem.ouertani@insat.ucar.tn</a></p>
+          </div>
+          <div class="contact-info-container">
+            <img src="phone.png" alt="phone icon" class="icon contact-icon">
+            <p>+216_54420157</p>
+          </div>
+          <div class="contact-info-container">
+            <img src="position.jpg" alt="position icon" class="icon contact-icon">
+            <p>Tunis, Tunisia</a></p>
+          </div>
+        </div>
+
+       <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+           
+           <div>
+  <a href="https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/" target="_blank" class="social-link">
+    <img src="linkedin.png" alt="My LinkedIn profile" class="icon">
+    <span>LinkedIn</span>
+  </a>
+</div>
+          </div>
+          <div class="contact-info-container">
+            
+            <div>
+  <a href="https://github.com/mariemouertani104" target="_blank" class="social-link">
+    <img src="gt.png" alt="My GitHub account" class="icon">
+    <span>GitHub</span>
+  </a>
+</div>
+          </div>
+          <div class="contact-info-container">
+            
+            <div>
+  <a href="https://drive.google.com/drive/folders/1qR106V_O8rXrkft0UR04ymitMivaQoqY?usp=drive_link" target="_blank" class="drive-link">
+    <img src="drrr.png" alt="My portfolio" class="icon">
+    <span>Drive</span>
+  </a>
+</div>
+        </div>
+      </section>
+<footer>  
+    <nav>
+      <div class="nav-links-container">
+        <ul class="nav-links">
+            <li><a href="#education">Education&H.Skills</a></li>
+            <li><a href="#soft">S.Skills</a></li>
+        
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#organizations">Volunteering</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>Copyright © 2024 Meriem Ouertani. All Rights Reserved.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="intro.js"></script>
+  <script src="script.js"></script>
+  <script src="particles.js"></script>
+  <script src="app.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
