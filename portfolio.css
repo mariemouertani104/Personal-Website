@@ -51,6 +51,8 @@ nav, .nav-links {
   align-items: center;
   height: 15vh;
   padding: 50px;
+  position: relative;
+  z-index: 100;
 }
 
 nav {
@@ -89,6 +91,8 @@ a:hover {
 /* HAMBURGER MENU */
 #hamburger-nav {
   display: none;
+  position: relative;
+  z-index: 1000;
 }
 
 .hamburger-menu {
@@ -114,24 +118,38 @@ a:hover {
 
 .menu-links {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   right: 0;
-  background-color: rgba(255, 255, 255, 0.126);
-  border-radius: 0.5rem;
+  /* Fond bien opaque pour ne jamais voir le contenu derrière */
+  background-color: rgba(5, 0, 50, 0.97);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
   width: fit-content;
+  min-width: 200px;
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  /* Z-index très élevé pour passer AU-DESSUS de tout le contenu */
+  z-index: 9999;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .menu-links a {
   display: block;
-  padding: 10px;
+  padding: 12px 20px;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: rgb(255, 255, 255);
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.menu-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
 }
 
 .menu-links li {
@@ -139,7 +157,7 @@ a:hover {
 }
 
 .menu-links.open {
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .hamburger-icon.open span:first-child {
@@ -709,12 +727,18 @@ body.light-mode .hamburger-icon span {
 }
 
 body.light-mode .menu-links {
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 15px rgba(0, 0, 120, 0.15);
+  background-color: rgba(240, 244, 255, 0.98);
+  border-color: rgba(0, 0, 120, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 120, 0.15);
 }
 
 body.light-mode .menu-links a {
   color: #0a0a6e;
+  border-bottom-color: rgba(0, 0, 120, 0.08);
+}
+
+body.light-mode .menu-links a:hover {
+  background-color: rgba(0, 0, 120, 0.08);
 }
 
 body.light-mode .theme-toggle {
