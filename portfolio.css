@@ -204,7 +204,9 @@ section {
   height: 400px;
   width: 400px;
   flex-shrink: 0;
-  margin: auto 0;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .section__text {
