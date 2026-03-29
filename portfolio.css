@@ -205,8 +205,17 @@ section {
   width: 400px;
   flex-shrink: 0;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Centrage uniquement pour la photo About */
+#about .section__pic-container {
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  height: auto;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 1.5rem auto;
 }
 
 .section__text {
