@@ -21,15 +21,18 @@
      <nav id="desktop-nav"> 
         <div>
           <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education&H.Skills</a></li>
-          <li><a href="#soft">Skills</a></li>
+          <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+          <li><a href="#education" data-en="Education & H.Skills" data-fr="Formation & Compétences">Education & H.Skills</a></li>
+          <li><a href="#soft" data-en="S.Skills" data-fr="Compétences humaines">S.Skills</a></li>
         
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#organizations">Volunteering</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
+          <li><a href="#experience" data-en="Experience" data-fr="Expérience">Experience</a></li>
+          <li><a href="#organizations" data-en="Volunteering" data-fr="Bénévolat">Volunteering</a></li>
+          <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
           </ul>
+          <button class="theme-toggle" onclick="toggleLang()">
+            <span class="lang-label">FR</span>
+          </button>
         </div>
       </nav>
 
@@ -45,38 +48,41 @@
             <span></span>
           </div>
           <div class="menu-links ">
-            <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#education" onclick="toggleMenu()">Education&H.Skills</a></li>
-            <li><a href="#soft" onclick="toggleMenu()">S.Skills</a></li>
+            <li><a href="#about" onclick="toggleMenu()" data-en="About" data-fr="À propos">About</a></li>
+            <li><a href="#education" onclick="toggleMenu()" data-en="Education & H.Skills" data-fr="Formation & Compétences">Education & H.Skills</a></li>
+            <li><a href="#soft" onclick="toggleMenu()" data-en="S.Skills" data-fr="Compétences humaines">S.Skills</a></li>
            
-            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="#experience" onclick="toggleMenu()"> Experience</a></li>
-            <li><a href="#organizations" onclick="toggleMenu()">Organizations</a></li>
-            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            <li><a href="#projects" onclick="toggleMenu()" data-en="Projects" data-fr="Projets">Projects</a></li>
+            <li><a href="#experience" onclick="toggleMenu()" data-en="Experience" data-fr="Expérience">Experience</a></li>
+            <li><a href="#organizations" onclick="toggleMenu()" data-en="Organizations" data-fr="Organisations">Organizations</a></li>
+            <li><a href="#contact" onclick="toggleMenu()" data-en="Contact" data-fr="Contact">Contact</a></li>
           </div>
         </div>
+        <button class="theme-toggle" onclick="toggleLang()">
+          <span class="lang-label">FR</span>
+        </button>
       </nav>
       <section id="profile">
         <div class="section__pic-container">
             <img src="mariem photo.jpg" class="img_me" alt="mariem profile picture">
           </div>
         <div class="section__text">
-          <p class="section__text__p1">Welcome! I'm</p>
+          <p class="section__text__p1" data-en="Welcome! I'm" data-fr="Bienvenue ! Je suis">Welcome! I'm</p>
           <h1 class="title" style="color:white;">Mariem Ouertani</h1>
-          <p class="section__text__p2">  ICT & Software Engineering Student</p>
+          <p class="section__text__p2" data-en="ICT & Software Engineering Student" data-fr="Étudiante ingénieure en TIC et génie logiciel">ICT & Software Engineering Student</p>
           <div class="btn-container">
-            <button class="btn btn-color-2" onclick="location.href='Resume 03-2026.pdf';" download="Resume 03-2026.pdf" >
+            <button class="btn btn-color-2" onclick="location.href='Mariem_Ouertani_Resume_2026-09.pdf';" download="Mariem_Ouertani_Resume_2026-09.pdf" data-en="Download Resume" data-fr="Télécharger le CV">
               Download Resume
             </button>
-            <button class="btn btn-color-2" onclick="location.href='Mariem_Ouertani_CV_Resume_2026-03.pdf';" download="Mariem_Ouertani_CV_Resume_2026-03.pdf" >
-              télécharger le CV 
+            <button class="btn btn-color-2" onclick="location.href='Mariem_Ouertani_CV_2026-09.pdf';" download="Mariem_Ouertani_CV_2026-09.pdf" data-en="Download CV" data-fr="Télécharger le CV">
+              Download CV
             </button>
-            <button class="btn btn-color-2" onclick="location.href='#contact'">
+            <button class="btn btn-color-2" onclick="location.href='#contact'" data-en="Contact Info" data-fr="Coordonnées">
               Contact Info
             </button>
           </div>
           <br>
-          <p class="section__text__p3">Connect with me on social media</p>
+          <p class="section__text__p3" data-en="Connect with me" data-fr="Retrouvez-moi">Connect with me</p>
           <br>
           <d id="socials-container">
             <img src="linkedin.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/?trk=opento_sprofile_details'"> 
@@ -88,8 +94,8 @@
       </section>
 
       <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
+        <p class="section__text__p1" data-en="Get To Know More" data-fr="En savoir plus">Get To Know More</p>
+        <h1 class="title" data-en="About Me" data-fr="À propos de moi">About Me</h1>
         <br>
         <div class="section-container">
           <div class="section__pic-container">
@@ -98,18 +104,29 @@
            <br>
           <div class="about-details-container">
             <div class="about-containers">
-              <div class="details-container  text-container">
-                
-                <p>Autonomous and motivated individual, oriented towards achieving objectives.
-                  <br> Passionate about technology, with excellent academic results and associative involvement.
-                  <br>Currently a first year Engineering student in Computer Networks and Telecommunications at 
-                  the National Institute of Applied Sciences and Technology (INSAT).
-                  <br>My drive to learn is continuous and has led me to acquire several professional certifications from leaders like AWS, Cisco, IBM, and Google.
-                  <br>Experience in Web development (front end), passion for AI and interest in DevOps and cloud computing.
-                  <br>Beyond my academic pursuits, I am actively engaged in campus life and civic initiatives. As a member of organizations like IEEE and Junior Entreprise, I’ve had the opportunity to participate in numerous events, conferences, and workshops.
-                </p>
-              </div>
-            </div>
+  <div class="details-container text-container">
+    <p data-en-html="Ranked 1st out of 88 students during my first year in the ICT engineering cycle at the National Institute of Applied Science and Technology (INSAT).&lt;br&gt;&lt;br&gt;My academic excellence is backed by a continuous drive for technical mastery. Over the past few years, I have shifted my focus toward Artificial Intelligence and Machine Learning, exploring how these technologies integrate with modern infrastructure. To support this vision, I have earned professional certifications from industry leaders including AWS, Google, IBM, and Cisco, deepening my expertise in Cloud Computing and DevOps. I further broadened this foundation through the University of Zurich's &amp;quot;Deep Dive into Blockchain&amp;quot; Summer School, where I worked with an international team on a decentralized application and ranked 4th out of 13 groups, awarded with a medal for this achievement.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Technical core &amp; interests:&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Software &amp; AI:&lt;/strong&gt; Development of intelligent solutions with a focus on ML models.&lt;br&gt;&lt;strong&gt;Infrastructure:&lt;/strong&gt; Cloud architecture (AWS), DevOps practices, and Network.&lt;br&gt;&lt;strong&gt;IoT:&lt;/strong&gt; Connecting the physical world to digital intelligence.&lt;br&gt;&lt;strong&gt;Web Dev:&lt;/strong&gt; Strong foundations in Full stack development.&lt;br&gt;&lt;br&gt;Beyond technical skills, my involvement in IEEE and Junior Entreprise has sharpened my leadership and communication skills, allowing me to manage complex projects and collaborate in high-pressure environments.&lt;br&gt;&lt;br&gt;I am always looking for new challenges where I can bridge the gap between robust ICT infrastructure and cutting-edge AI."
+      data-fr-html="Classée première sur 88 étudiants durant ma première année du cycle d'ingénieur en TIC à l'Institut national des sciences appliquées et de technologie (INSAT).&lt;br&gt;&lt;br&gt;Mon excellence académique s'appuie sur une volonté constante de maîtriser les compétences techniques. Ces dernières années, je me suis orientée vers l'intelligence artificielle et l'apprentissage automatique, en étudiant l'intégration de ces technologies aux infrastructures modernes. Pour soutenir cette vision, j'ai obtenu des certifications professionnelles auprès de leaders du secteur, notamment AWS, Google, IBM et Cisco, en approfondissant mes compétences en cloud computing et en DevOps. J'ai également enrichi cette base lors de la Summer School &amp;quot;Deep Dive into Blockchain&amp;quot; de l'Université de Zurich, où j'ai travaillé avec une équipe internationale sur une application décentralisée et me suis classée quatrième parmi 13 groupes, avec une médaille à la clé.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Domaines techniques et centres d'intérêt :&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Logiciel et IA :&lt;/strong&gt; Développement de solutions intelligentes axées sur les modèles de machine learning.&lt;br&gt;&lt;strong&gt;Infrastructure :&lt;/strong&gt; Architecture cloud (AWS), pratiques DevOps et réseaux.&lt;br&gt;&lt;strong&gt;IoT :&lt;/strong&gt; Connexion du monde physique à l'intelligence numérique.&lt;br&gt;&lt;strong&gt;Développement web :&lt;/strong&gt; Solides bases en développement full stack.&lt;br&gt;&lt;br&gt;Au-delà des compétences techniques, mon engagement au sein de l'IEEE et de Junior Entreprise a renforcé mes aptitudes en leadership et en communication, me permettant de gérer des projets complexes et de collaborer dans des environnements exigeants.&lt;br&gt;&lt;br&gt;Je suis toujours à la recherche de nouveaux défis me permettant de rapprocher des infrastructures TIC robustes et une IA de pointe.">
+      Ranked 1st out of 88 students during my first year in the ICT engineering cycle at the National Institute of Applied Science and Technology (INSAT).
+      <br><br>
+      My academic excellence is backed by a continuous drive for technical mastery. Over the past few years, I have shifted my focus toward Artificial Intelligence and Machine Learning, exploring how these technologies integrate with modern infrastructure. To support this vision, I have earned professional certifications from industry leaders including AWS, Google, IBM, and Cisco, deepening my expertise in Cloud Computing and DevOps. I further broadened this foundation through the University of Zurich's "Deep Dive into Blockchain" Summer School, where I worked with an international team on a decentralized application and ranked 4th out of 13 groups, awarded with a medal for this achievement.
+      <br><br>
+      <strong>Technical core & interests:</strong>
+      <br>
+      <strong>Software & AI:</strong> Development of intelligent solutions with a focus on ML models.
+      <br>
+      <strong>Infrastructure:</strong> Cloud architecture (AWS), DevOps practices, and Network.
+      <br>
+      <strong>IoT:</strong> Connecting the physical world to digital intelligence.
+      <br>
+      <strong>Web Dev:</strong> Strong foundations in Full stack development.
+      <br><br>
+      Beyond technical skills, my involvement in IEEE and Junior Entreprise has sharpened my leadership and communication skills, allowing me to manage complex projects and collaborate in high-pressure environments.
+      <br><br>
+      I am always looking for new challenges where I can bridge the gap between robust ICT infrastructure and cutting-edge AI.
+    </p>
+  </div>
+</div>
           </div>
         </div>
       </section>
@@ -124,14 +141,23 @@
             <div class="about-containers">
             <div class="details-container">
               <div class="article-container">
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Diploma of Computer Networks and Telecommunications Engineering</h3>
-                    <p> expected in 2028
+                <article class="edu-article">
+  <img src="checkmark.png" alt="Experience icon" class="icon">
+  <div>
+    <h3>Computer Networks and Telecommunication Engineering, <a href="https://insat.rnu.tn/" target="_blank" rel="noopener">INSAT</a></h3>
+    
+    <p>Top of the class, ranked 1st out of 88 — Very Good</p>
+  </div>
+</article>
 
-                  </div>
-                </article>
+<article class="edu-article">
+  <img src="checkmark.png" alt="Experience icon" class="icon">
+  <div>
+    <h3>International Summer School Program, Blockchain, <a href="https://www.uzh.ch/en.html" target="_blank" rel="noopener">University of Zurich (UZH)</a></h3>
+    <p class="edu-meta"> Zurich, Switzerland</p>
+   
+  </div>
+</article>
                 <article>
                   <img src="checkmark.png" alt="Experience icon" class="icon">
                   <div>
@@ -340,6 +366,14 @@
             </div>
             <div class="details-container">
             <div class="article-container">
+               <article>
+                <img src="checkmark.png" alt="Experience icon" class="icon">
+                <div>
+                  <h3>Networks & Telecommunications </h3>
+                  
+                </div>
+              </article>
+
               <article>
                 <img src="checkmark.png" alt="Experience icon" class="icon">
                 <div>
@@ -414,6 +448,12 @@
                       <img src="checkmark.png" alt="Experience icon" class="icon">
                       <div>
                         <h3>Data Exploratary</h3>
+                      </div>
+                    </article>
+                     <article>
+                      <img src="checkmark.png" alt="Experience icon" class="icon">
+                      <div>
+                        <h3>Data Analysis</h3>
                       </div>
                     </article>
                     <article>
@@ -492,12 +532,12 @@
           <div class="ppp-text-details">
           <h2 class="experience-sub-title project-title">Adversarial Neural Cryptography (GANs)</h2>
           <p class="project-description">
-            Implémentation de l'architecture <strong>Alice-Bob-Eve</strong> basée sur les recherches de Google Brain. 
-            Conception d'un système de chiffrement de bout en bout où deux réseaux de neurones apprennent à 
-            sécuriser leurs communications par entraînement adversarial, sans algorithmes classiques.
+            Implemented the <strong>Alice-Bob-Eve</strong>architecture based on the research paper "Learning to Protect Communications with Adversarial Neural Cryptography".   
+            Developed an end-to-end encryption system using GANs to learn robust protocols without classical algorithms. 
+          <div class="project-tags">
           </p>
           
-          <div class="project-tags">
+
             <span class="tag">Deep Learning</span>
             <span class="tag">GANs</span>
             <span class="tag">PyTorch</span>
@@ -708,22 +748,42 @@ Gestion de Robots de Connexion et Livraison Écologique</h2>
   <br>
   <div class="organisation-details-container">
     <div class="about-containers">
-      
-      <!-- Experience Box 1 -->
+    
+
+
+
       <div class="org-details-container color-container">
         <div class="article-container">
-          <img src="iliadephoto.png" alt="iliade consulting logo" class="organisation-img">
-        </div>
-        <h2 class="experience-sub-title project-title">RPA Developer, SAP Consultant</h2>
-        <div class="btn-container">
-          <p>Skills: RPA Development, Uipath Studio, SAP IS-U, Uipath TaskCapture</p>
-        </div>
-      </div>
+         <div class="org-logo-circle">
+         <img src="sahera.png" alt="SaHera">
+         </div>
+         </div>
+       <h2 class="experience-sub-title project-title">Data Scientist, AI/ML Engineer (Internship), <a href="https://sahera.ca/en" target="_blank" rel="noopener">SaHera</a></h2>
+       <div class="btn-container">
+       <p class="edu-meta">06/2026 – Present | Montreal, Quebec, Canada</p>
+      <p>Working on machine learning and deep learning models for a FemTech health app — from literature review and multimodal dataset collection to exploratory data analysis, data preprocessing pipelines, and model training, tuning, and evaluation.</p>
+  </div>
+</div>
+      <!-- Experience Box 1 -->
+    <div class="org-details-container color-container">
+ <div class="article-container">
+  <div class="org-logo-circle">
+    <img src="iliadephoto.png" alt="iliade consulting logo" class="organisation-img">
+  </div>
+    </div>
+  <h2 class="experience-sub-title project-title">RPA Developer, SAP Consultant (Internship), <a href="https://www.iliadeconsulting.com/" target="_blank" rel="noopener">Iliade Consulting</a></h2>
+  <div class="btn-container">
+    <p class="edu-meta">07/2025 – 08/2025 | Les Berges du Lac, Tunisia</p>
+    <p>Designed and developed an invoice automation robot in SAP IS-U using UiPath, applying computer vision techniques to optimize interactions with the SAP interface, along with project analysis and management.</p>
+  </div>
+</div>
 
       <!-- Experience Box 2 -->
       <div class="org-details-container color-container">
-        <div class="article-container">
+         <div class="article-container">
+  <div class="org-logo-circle">
           <img src="ATB.png" alt="ATB logo" class="organisation-img">
+        </div>
         </div>
         <h2 class="experience-sub-title project-title">Client Servicing intern at ATB Bank</h2>
         <div class="btn-container">
@@ -733,8 +793,10 @@ Gestion de Robots de Connexion et Livraison Écologique</h2>
 
       <!-- Experience Box 3 -->
       <div class="org-details-container color-container">
-        <div class="article-container">
+         <div class="article-container">
+  <div class="org-logo-circle">
           <img src="cs.jpeg" alt="IEEE" class="organisation-img">
+        </div>
         </div>
         <h2 class="experience-sub-title project-title">CS chapter project member</h2>
         <div class="btn-container">
@@ -747,8 +809,10 @@ Gestion de Robots de Connexion et Livraison Écologique</h2>
 
       <!-- Experience Box 4 -->
       <div class="org-details-container color-container">
-        <div class="article-container">
+         <div class="article-container">
+  <div class="org-logo-circle">
           <img src="ju.jpeg" alt="JuniorEntreprise" class="organisation-img">
+        </div>
         </div>
         <h2 class="experience-sub-title project-title">JEI chapter project member</h2>
         <div class="btn-container">

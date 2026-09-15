@@ -58,3 +58,38 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   updateThemeIcons();
 });
+
+// ============================================
+// LANGUAGE TOGGLE — EN / FR
+// ============================================
+
+function applyLanguage(lang) {
+  document.querySelectorAll("[data-en]").forEach((element) => {
+    const text = element.getAttribute(`data-${lang}`);
+    if (text !== null) element.textContent = text;
+  });
+
+  document.querySelectorAll("[data-en-html]").forEach((element) => {
+    const html = element.getAttribute(`data-${lang}-html`);
+    if (html !== null) element.innerHTML = html;
+  });
+
+  document.querySelectorAll(".lang-label").forEach((element) => {
+    element.textContent = lang === "en" ? "FR" : "EN";
+  });
+
+  document.documentElement.setAttribute("lang", lang);
+  localStorage.setItem("lang", lang);
+}
+
+function toggleLang() {
+  const current = localStorage.getItem("lang") || "en";
+  const next = current === "en" ? "fr" : "en";
+  applyLanguage(next);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "en";
+  applyLanguage(savedLang);
+});
+
