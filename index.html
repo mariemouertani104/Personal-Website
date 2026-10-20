@@ -1,1039 +1,878 @@
-  <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariem Ouertani - ICT Engineering Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="portfolio.css">
-    <link rel="stylesheet" href="particles.css">
-    <link rel="icon" href="MariemLogo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">Mariem Ouertani - ICT Engineering Portfolio</title>
+  <meta name="description"
+        content="Portfolio of Mariem Ouertani, ICT engineering student: artificial intelligence, machine learning, cloud, networks and software projects."
+        data-i18n-attr="content:meta.description">
+  <link rel="icon" href="MariemLogo.png">
+
+  <!-- Applique le thème enregistré avant l'affichage pour éviter tout clignotement -->
+  <script>
+    try {
+      document.documentElement.setAttribute(
+        "data-bs-theme",
+        localStorage.getItem("theme") === "light" ? "light" : "dark"
+      );
+    } catch (error) { /* stockage indisponible : thème sombre par défaut */ }
+  </script>
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap et Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Styles du portfolio -->
+  <link rel="stylesheet" href="style.css">
+
+  <noscript><style>.splash { display: none; }</style></noscript>
 </head>
+
 <body>
-    <div class="intro">
-        <h1 class="logo-header">
-          <span class="intrologo ">Mar</span>
-          <span class="intrologo ">iem</span>
-        </h1>
-      </div>
-     <div id="particles-js"><canvas class="particles-js-canvas-el" width="1600" height="1000" style="width: 100%; height: 100%;"></canvas></div>
-     <nav id="desktop-nav"> 
-        <div>
-          <ul class="nav-links">
-          <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
-          <li><a href="#education" data-en="Education & H.Skills" data-fr="Formation & Compétences">Education & H.Skills</a></li>
-          <li><a href="#soft" data-en="S.Skills" data-fr="Compétences humaines">S.Skills</a></li>
-        
-          <li><a href="#projects" data-en="Projects" data-fr="Projets">Projects</a></li>
-          <li><a href="#experience" data-en="Experience" data-fr="Expérience">Experience</a></li>
-          <li><a href="#organizations" data-en="Volunteering" data-fr="Bénévolat">Volunteering</a></li>
-          <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
-          </ul>
-          <button class="theme-toggle" onclick="toggleLang()">
-            <span class="lang-label">FR</span>
-          </button>
-        </div>
-      </nav>
+  <!-- Écran d'intro -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <p class="splash-logo"><span class="splash-letter">Mar</span><span class="splash-letter">iem</span></p>
+  </div>
 
+  <!-- Arrière-plan animé (particles.js) -->
+  <div class="particles" id="particles-js" aria-hidden="true"></div>
 
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation" data-i18n-attr="aria-label:ui.mainNav">
+      <a class="nav-brand" href="#profile">Mariem Ouertani</a>
 
-      <nav id="hamburger-nav">
-        <div class="logo" style="color: white;">Mariem Ouertani</div>
-        <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
-            
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="menu-links ">
-            <li><a href="#about" onclick="toggleMenu()" data-en="About" data-fr="À propos">About</a></li>
-            <li><a href="#education" onclick="toggleMenu()" data-en="Education & H.Skills" data-fr="Formation & Compétences">Education & H.Skills</a></li>
-            <li><a href="#soft" onclick="toggleMenu()" data-en="S.Skills" data-fr="Compétences humaines">S.Skills</a></li>
-           
-            <li><a href="#projects" onclick="toggleMenu()" data-en="Projects" data-fr="Projets">Projects</a></li>
-            <li><a href="#experience" onclick="toggleMenu()" data-en="Experience" data-fr="Expérience">Experience</a></li>
-            <li><a href="#organizations" onclick="toggleMenu()" data-en="Organizations" data-fr="Organisations">Organizations</a></li>
-            <li><a href="#contact" onclick="toggleMenu()" data-en="Contact" data-fr="Contact">Contact</a></li>
-          </div>
-        </div>
-        <button class="theme-toggle" onclick="toggleLang()">
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#profile" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#education" data-i18n="nav.education">Education</a></li>
+        <li><a href="#hard-skills" data-i18n="nav.hardSkills">Hard Skills</a></li>
+        <li><a href="#soft" data-i18n="nav.softSkills">Soft Skills</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
+        <li><a href="#organizations" data-i18n="nav.volunteering">Volunteering</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="icon-btn" id="theme-toggle"
+                aria-label="Toggle light/dark mode" data-i18n-attr="aria-label:ui.toggleTheme">
+          <i class="bi bi-sun-fill icon-sun" aria-hidden="true"></i>
+          <i class="bi bi-moon-stars-fill icon-moon" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="icon-btn" id="lang-toggle"
+                aria-label="Switch language" data-i18n-attr="aria-label:ui.toggleLang">
+          <i class="bi bi-translate" aria-hidden="true"></i>
           <span class="lang-label">FR</span>
         </button>
-      </nav>
-      <section id="profile">
-        <div class="section__pic-container">
-            <img src="mariem photo.jpg" class="img_me" alt="mariem profile picture">
-          </div>
-        <div class="section__text">
-          <p class="section__text__p1" data-en="Welcome! I'm" data-fr="Bienvenue ! Je suis">Welcome! I'm</p>
-          <h1 class="title" style="color:white;">Mariem Ouertani</h1>
-          <p class="section__text__p2" data-en="ICT & Software Engineering Student" data-fr="Étudiante ingénieure en TIC et génie logiciel">ICT & Software Engineering Student</p>
-          <div class="btn-container">
-            <button class="btn btn-color-2" onclick="location.href='Mariem_Ouertani_Resume_2026-09.pdf';" download="Mariem_Ouertani_Resume_2026-09.pdf" data-en="Download Resume" data-fr="Download Resume">
-              Download Resume
-            </button>
-            <button class="btn btn-color-2" onclick="location.href='Mariem_Ouertani_CV_2026-09.pdf';" download="Mariem_Ouertani_CV_2026-09.pdf" data-en="Télécharger le CV" data-fr="Télécharger le CV">
-              Télécharger le CV
-            </button>
-            <button class="btn btn-color-2" onclick="location.href='#contact'" data-en="Contact Info" data-fr="Coordonnées">
-              Contact Info
-            </button>
-          </div>
-          <br>
-          <p class="section__text__p3" data-en="Connect with me" data-fr="Retrouvez-moi">Connect with me</p>
-          <br>
-          <d id="socials-container">
-            <img src="linkedin.png" alt="My LinkedIn profile" class="icon" onclick="location.href='https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/?trk=opento_sprofile_details'"> 
-          <img src="gt.png" alt="My GitHub account" class="icon" onclick="location.href='https://github.com/mariemouertani104'"> 
-          <img src="drrr.png" alt="My   parortfolio" class="icon" onclick="location.href='https://drive.google.com/drive/folders/1qR106V_O8rXrkft0UR04ymitMivaQoqY?usp=drive_link'"> </div>
-          
-
-      </div>
-      </section>
-
-      <section id="about">
-        <p class="section__text__p1" data-en="Get To Know More" data-fr="En savoir plus">Get To Know More</p>
-        <h1 class="title" data-en="About Me" data-fr="À propos de moi">About Me</h1>
-        <br>
-        <div class="section-container">
-          <div class="section__pic-container">
-            <img src="me.png"   alt="Profile picture" class="about-pic">
-          </div>
-           <br>
-          <div class="about-details-container">
-            <div class="about-containers">
-  <div class="details-container text-container">
-    <p data-en-html="Ranked 1st out of 88 students during my first year in the ICT engineering cycle at the National Institute of Applied Science and Technology (INSAT).&lt;br&gt;&lt;br&gt;My academic excellence is backed by a continuous drive for technical mastery. Over the past few years, I have shifted my focus toward Artificial Intelligence and Machine Learning, exploring how these technologies integrate with modern infrastructure. To support this vision, I have earned professional certifications from industry leaders including AWS, Google, IBM, and Cisco, deepening my expertise in Cloud Computing and DevOps. I further broadened this foundation through the University of Zurich's &amp;quot;Deep Dive into Blockchain&amp;quot; Summer School, where I worked with an international team on a decentralized application and ranked 4th out of 13 groups, awarded with a medal for this achievement.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Technical core &amp; interests:&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Software &amp; AI:&lt;/strong&gt; Development of intelligent solutions with a focus on ML models.&lt;br&gt;&lt;strong&gt;Infrastructure:&lt;/strong&gt; Cloud architecture (AWS), DevOps practices, and Network.&lt;br&gt;&lt;strong&gt;IoT:&lt;/strong&gt; Connecting the physical world to digital intelligence.&lt;br&gt;&lt;strong&gt;Web Dev:&lt;/strong&gt; Strong foundations in Full stack development.&lt;br&gt;&lt;br&gt;Beyond technical skills, my involvement in IEEE and Junior Entreprise has sharpened my leadership and communication skills, allowing me to manage complex projects and collaborate in high-pressure environments.&lt;br&gt;&lt;br&gt;I am always looking for new challenges where I can bridge the gap between robust ICT infrastructure and cutting-edge AI."
-      data-fr-html="Classée première sur 88 étudiants durant ma première année du cycle d'ingénieur en TIC à l'Institut national des sciences appliquées et de technologie (INSAT).&lt;br&gt;&lt;br&gt;Mon excellence académique s'appuie sur une volonté constante de maîtriser les compétences techniques. Ces dernières années, je me suis orientée vers l'intelligence artificielle et l'apprentissage automatique, en étudiant l'intégration de ces technologies aux infrastructures modernes. Pour soutenir cette vision, j'ai obtenu des certifications professionnelles auprès de leaders du secteur, notamment AWS, Google, IBM et Cisco, en approfondissant mes compétences en cloud computing et en DevOps. J'ai également enrichi cette base lors de la Summer School &amp;quot;Deep Dive into Blockchain&amp;quot; de l'Université de Zurich, où j'ai travaillé avec une équipe internationale sur une application décentralisée et me suis classée quatrième parmi 13 groupes, avec une médaille à la clé.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Domaines techniques et centres d'intérêt :&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Logiciel et IA :&lt;/strong&gt; Développement de solutions intelligentes axées sur les modèles de machine learning.&lt;br&gt;&lt;strong&gt;Infrastructure :&lt;/strong&gt; Architecture cloud (AWS), pratiques DevOps et réseaux.&lt;br&gt;&lt;strong&gt;IoT :&lt;/strong&gt; Connexion du monde physique à l'intelligence numérique.&lt;br&gt;&lt;strong&gt;Développement web :&lt;/strong&gt; Solides bases en développement full stack.&lt;br&gt;&lt;br&gt;Au-delà des compétences techniques, mon engagement au sein de l'IEEE et de Junior Entreprise a renforcé mes aptitudes en leadership et en communication, me permettant de gérer des projets complexes et de collaborer dans des environnements exigeants.&lt;br&gt;&lt;br&gt;Je suis toujours à la recherche de nouveaux défis me permettant de rapprocher des infrastructures TIC robustes et une IA de pointe.">
-      Ranked 1st out of 88 students during my first year in the ICT engineering cycle at the National Institute of Applied Science and Technology (INSAT).
-      <br><br>
-      My academic excellence is backed by a continuous drive for technical mastery. Over the past few years, I have shifted my focus toward Artificial Intelligence and Machine Learning, exploring how these technologies integrate with modern infrastructure. To support this vision, I have earned professional certifications from industry leaders including AWS, Google, IBM, and Cisco, deepening my expertise in Cloud Computing and DevOps. I further broadened this foundation through the University of Zurich's "Deep Dive into Blockchain" Summer School, where I worked with an international team on a decentralized application and ranked 4th out of 13 groups, awarded with a medal for this achievement.
-      <br><br>
-      <strong>Technical core & interests:</strong>
-      <br>
-      <strong>Software & AI:</strong> Development of intelligent solutions with a focus on ML models.
-      <br>
-      <strong>Infrastructure:</strong> Cloud architecture (AWS), DevOps practices, and Network.
-      <br>
-      <strong>IoT:</strong> Connecting the physical world to digital intelligence.
-      <br>
-      <strong>Web Dev:</strong> Strong foundations in Full stack development.
-      <br><br>
-      Beyond technical skills, my involvement in IEEE and Junior Entreprise has sharpened my leadership and communication skills, allowing me to manage complex projects and collaborate in high-pressure environments.
-      <br><br>
-      I am always looking for new challenges where I can bridge the gap between robust ICT infrastructure and cutting-edge AI.
-    </p>
-  </div>
-</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="education">
-        <p class="section__text__p1">Explore More About My</p>
-        <h1 class="title">Learning Path </h1>
-        <p class="section__text__p1">and my</p>
-        <h1 class="title"> Technical Skills </h1>
-      </br>
-        <div class="education-details-container">
-            <div class="about-containers">
-            <div class="details-container">
-              <div class="article-container">
-                <article class="edu-article">
-  <img src="checkmark.png" alt="Experience icon" class="icon">
-  <div>
-    <h3>Computer Networks and Telecommunication Engineering, <a href="https://insat.rnu.tn/" target="_blank" rel="noopener">INSAT</a></h3>
-    
-    <p>Top of the class, ranked 1st out of 88 — Very Good</p>
-  </div>
-</article>
-
-<article class="edu-article">
-  <img src="checkmark.png" alt="Experience icon" class="icon">
-  <div>
-    <h3>International Summer School Program, Blockchain, <a href="https://www.uzh.ch/en.html" target="_blank" rel="noopener">University of Zurich (UZH)</a></h3>
-    <p class="edu-meta"> Zurich, Switzerland</p>
-   
-  </div>
-</article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Preparatory Class of Computer Networks and Telecommunications Engineering</h3>
-                    <p>  with honors
-                      <br>Moy : 14/20
-                      <br>Rank: 3/86
-                    </p>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>MPI Integrated preparatory cycle </h3>
-                    <p>with honors</p>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3> Baccalaureat in Experimental Sciences</h3>
-                    <p>  very good mention
-                      <br>Moy : 17.58/20
-                      <br>Rank: 309/13603 ( top 2.27% at the national level)
-                    </p>
-                  </div>
-                </article>
-                
-                
-            </div>
-        </div>
-        
-        </div>
-        <div class="about-containers">
-         <div class="details-container">
-              <div class="article-container">
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Maths</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Analytics</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Linear Algebra</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Statics & Probabilities</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Algoritms</h3>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-          <div class="about-containers">
-            <div class="details-container">
-              <div class="article-container">
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3> Advanced Python</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Numpy</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Java</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>JEE/SpringBoot</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>C/C++</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Oriented Object Programmation</h3>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div class="details-container">
-              <div class="article-container">
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>HTML5</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>CSS3</h3>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Bootstrap</h3>
-                  </div>
-                </article>
-                <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>JavaScript,jQuery,ReactJS</h3>
-                    </div>
-                  </article>
-                  <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>PHP,Symphony</h3>
-                    </div>
-                  </article>
-                  <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>UX/UI</h3>
-                    </div>
-                  </article>
-              </div>
-            </div>
-          </div>
-          <div class="about-containers">
-            <div class="details-container">
-              <div class="article-container">
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>AI </h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Machine Learning</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>Deep Learning</h3>
-                      <p>Intermediate</p>
-                    </div>
-                  </article>
-                  <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>NLP</h3>
-                      <p>Intermediate</p>
-                    </div>
-                  </article>
-                  <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>LLM</h3>
-                      <p>Intermediate</p>
-                    </div>
-                  </article>
-                  <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>Computer Vision</h3>
-                      <p>Intermediate</p>
-                    </div>
-                  </article>
-                  <article>
-                    <img src="checkmark.png" alt="Experience icon" class="icon">
-                    <div>
-                      <h3>AI agents</h3>
-                      <p>Fundamentals</p>
-                    </div>
-                  </article>
-                  
-              </div>
-            </div>
-            <div class="details-container">
-            <div class="article-container">
-               <article>
-                <img src="checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Networks & Telecommunications </h3>
-                  
-                </div>
-              </article>
-
-              <article>
-                <img src="checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>ICT</h3>
-                 
-                </div>
-              </article>
-              <article>
-                <img src="checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>IOT</h3>
-                  <p>Fundamentals</p>
-                </div>
-              </article>
-               <article>
-                <img src="checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Smart devices</h3>
-                  <p>Fundamentals of developing smart devices</p>
-                </div>
-              </article>
-              <article>
-                <img src="checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Networks</h3>
-                 <p>CCNA1, CCNA2, CCNA3 </p>
-                </div>
-              </article>
-
-              <article>
-                <img src="checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Wifi, 5G</h3>
-                </div>
-              </article>
-
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>DevOps</h3>
-                    <p>Fundamentals</p>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Cloud computing</h3>
-                    <p>Fundamentals</p>
-                  </div>
-                </article>
-                <article>
-                  <img src="checkmark.png" alt="Experience icon" class="icon">
-                  <div>
-                    <h3>Linux</h3>
-                    <p>Fundamentals</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-          <div class="about-containers">
-                <div class="details-container">
-                  <div class="article-container">
-                   
-                    <article>
-                      <img src="checkmark.png" alt="Experience icon" class="icon">
-                      <div>
-                        <h3>Data Bases Administration</h3>
-                      </div>
-                    </article>
-                    <article>
-                      <img src="checkmark.png" alt="Experience icon" class="icon">
-                      <div>
-                        <h3>Data Exploratary</h3>
-                      </div>
-                    </article>
-                     <article>
-                      <img src="checkmark.png" alt="Experience icon" class="icon">
-                      <div>
-                        <h3>Data Analysis</h3>
-                      </div>
-                    </article>
-                    <article>
-                        <img src="checkmark.png" alt="Experience icon" class="icon">
-                        <div>
-                          <h3>SQL</h3>
-                        </div>
-                      </article>
-                  </div>
-                </div>
-        </div>
-      </section>
-
-      <section id="soft">
-        <p class="section__text__p1">Get to know More About My</p>
-        <h1 class="title">Soft Skills</h1>
-        <div class="soft-details-container">
-          
-            <div class="details-containers">
-                <div class="about-containers">
-                <div class="article-container">
-                    <article>
-                     
-                      <div>
-                        <h3>Agile Scrum &Kanban Method</h3>
-                      </div>
-                    </article>
-                    <article>
-                      
-                      <div>
-                        <h3>Team working &Communication</h3>
-                      </div>
-                    </article>
-                    <article>
-                      
-                      <div>
-                        <h3> Critical Thinking &Problem solving</h3>
-                      </div>
-                    </article>
-
-                    
-                    <article>
-                      
-                      <div>
-                        <h3>Self Confidance  </h3>
-                      </div>
-                    </article>
-                  
-                    </div>
-            </div>
-          </div>
-        </div>
-        <br>
-
-        <br>
-
-
-
-
-    </section>
-
-<section id="projects">
-  <p class="section__text__p1">Browse My Recent</p>
-  <h1 class="title">Projects</h1>
-  <br>
-   <br>
-  <div class="experience-details-container">
-    <div class="about-containers">
-      <div class="details-container color-container ppp-featured-row">
-        
-        
-
-          <div class="article-container ppp-image-small">
-          <img src="ppp.png" alt="Adversarial Neural Cryptography" class="project-img-contain">
-        </div>
-          <div class="ppp-text-details">
-          <h2 class="experience-sub-title project-title">Adversarial Neural Cryptography (GANs)</h2>
-          <p class="project-description">
-            Implemented the <strong>Alice-Bob-Eve</strong>architecture based on the research paper "Learning to Protect Communications with Adversarial Neural Cryptography".   
-            Developed an end-to-end encryption system using GANs to learn robust protocols without classical algorithms. 
-          <div class="project-tags">
-          </p>
-          
-
-            <span class="tag">Deep Learning</span>
-            <span class="tag">GANs</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Cybersecurity</span>
-          </div>
-          
-          <p class="stack-text"><strong>Stack:</strong> Python, PyTorch, NumPy, Scikit-learn.</p>
-
-          <div class="btn-container ppp-btn">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/PPP_Adversarial_Neural_Cryptography.git'">
-              Github
-            </button>
-          </div>
-        </div>
-
-        
-      </div>
-    </div>
-  </div>
-
-
-      <br>
-
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="rp.png"  class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Cybersecurity Audit & Mobile Traffic Analysis (Android)</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet-de-R-seaux-IP.git'">
-                Github
-              </button>
-              
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="sd.png"  class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Smart Agri-Sensor:IoT & Edge AI Solution</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Smart-device-project.git'">
-                Github
-              </button>
-              
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="ro.png" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title"> Supply Chain Optimization Dashboard (Operations Research) </h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet-de-recherche-operationnelle.git'">
-                Github
-              </button>
-             
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="uml.png"  class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">EduNet-Family</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/EduNet-Family.git'">
-                Github
-              </button>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <br>
-
-      <div class="experience-details-container">
-        <div class="about-containers">
-           <div class="details-container color-container">
-            <div class="article-container">
-              <img src="j.jpg" alt="
-Gestion de Robots de Connexion et Livraison Écologique" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">
-Gestion de Robots de Connexion et Livraison Écologique</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet_Java_gestionRobots.git'">
-                Github
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://drive.google.com/file/d/1hHtuVnHnvnvdj6XUmtRScw6Y7NuuZJzX/view?usp=drive_link'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-
-           <div class="details-container color-container">
-            <div class="article-container">
-              <img src="t.jpg" alt="Communication Socket" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Communication Socket</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Projet-T-l-informatique.git'">
-                Github
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://drive.google.com/file/d/1ZXH-rMnULaVvdvYrxEN9Y9jghSU8zOOL/view?usp=drive_link'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-
-
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="jcc.png" alt="jeu du chiffre caché" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Jeu du chiffre caché website</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/tp1/tree/main/ex1'">
-                Github
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://tp1-mariemouertani104s-projects.vercel.app/.'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="dk.png" alt="Drum Kit" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Drum Kit</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Drum-Kit'">
-                Github
-              </button>
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://drum-kit-tau-ten.vercel.app/'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <br>
-
-
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="ta.jpeg" alt="Travel Agency" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Travel Agency</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/agence-de-voyage.git'">
-                Github
-              </button>
-              
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="wk.jpeg" alt="Kitchen World" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Kitchen World</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/kitchen_world.git'">
-                Github
-              </button>
-              
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="dw.jpeg" alt="Dominos Website" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Dominos Website</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Restau.git'">
-                Github
-              </button>
-             
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img src="vh.jpeg" alt="Victoria Hotel Website" class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Victoria Hotel Website</h2>
-            <div class="btn-container">
-              <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/mariemouertani104/Hotel'">
-                Github
-              </button>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-<section id="experience">
-  <p class="section__text__p1">Get to know More About My</p>
-  <h1 class="title">Experience</h1>
-  <br>
-  <div class="organisation-details-container">
-    <div class="about-containers">
-    
-
-
-
-      <div class="org-details-container color-container">
-        <div class="article-container">
-         <div class="org-logo-circle">
-         <img src="sahera.png" alt="SaHera">
-         </div>
-         </div>
-       <h2 class="experience-sub-title project-title">Data Scientist, AI/ML Engineer (Internship), <a href="https://sahera.ca/en" target="_blank" rel="noopener">SaHera</a></h2>
-       <div class="btn-container">
-       <p class="edu-meta">06/2026 – Present | Montreal, Quebec, Canada</p>
-      <p>Working on machine learning and deep learning models for a FemTech health app — from literature review and multimodal dataset collection to exploratory data analysis, data preprocessing pipelines, and model training, tuning, and evaluation.</p>
-  </div>
-</div>
-      <!-- Experience Box 1 -->
-    <div class="org-details-container color-container">
- <div class="article-container">
-  <div class="org-logo-circle">
-    <img src="iliadephoto.png" alt="iliade consulting logo" class="organisation-img">
-  </div>
-    </div>
-  <h2 class="experience-sub-title project-title">RPA Developer, SAP Consultant (Internship), <a href="https://www.iliadeconsulting.com/" target="_blank" rel="noopener">Iliade Consulting</a></h2>
-  <div class="btn-container">
-    <p class="edu-meta">07/2025 – 08/2025 | Les Berges du Lac, Tunisia</p>
-    <p>Designed and developed an invoice automation robot in SAP IS-U using UiPath, applying computer vision techniques to optimize interactions with the SAP interface, along with project analysis and management.</p>
-  </div>
-</div>
-
-      <!-- Experience Box 2 -->
-      <div class="org-details-container color-container">
-         <div class="article-container">
-  <div class="org-logo-circle">
-          <img src="ATB.png" alt="ATB logo" class="organisation-img">
-        </div>
-        </div>
-        <h2 class="experience-sub-title project-title">Client Servicing intern at ATB Bank</h2>
-        <div class="btn-container">
-          <p>Skills: professional communication</p>
-        </div>
-      </div>
-
-      <!-- Experience Box 3 -->
-      <div class="org-details-container color-container">
-         <div class="article-container">
-  <div class="org-logo-circle">
-          <img src="cs.jpeg" alt="IEEE" class="organisation-img">
-        </div>
-        </div>
-        <h2 class="experience-sub-title project-title">CS chapter project member</h2>
-        <div class="btn-container">
-          <p>
-            Contributing in developing a website for the chapter as a FrontEnd Developer on the INSAT platform using ReactJS<br>
-            Skills: ReactJS, Team working
-          </p>
-        </div>
-      </div>
-
-      <!-- Experience Box 4 -->
-      <div class="org-details-container color-container">
-         <div class="article-container">
-  <div class="org-logo-circle">
-          <img src="ju.jpeg" alt="JuniorEntreprise" class="organisation-img">
-        </div>
-        </div>
-        <h2 class="experience-sub-title project-title">JEI chapter project member</h2>
-        <div class="btn-container">
-          <p>Skills: web development, Team working, project management</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-      
-      <section id="organizations">
-        <p class="section__text__p1">Get To Know My</p>
-        <h1 class="title">Volunteering</h1>
-        <br>
-        <div class="organisation-details-container">
-          <div class="about-containers">
-            <div class="org-details-container color-container">
-              <div class="article-container">
-                <img src="ieee.jpeg"  alt="IEEE"  class="organisation-img">
-              </div>
-              <h2 class="experience-sub-title project-title">Member</h2>
-              <class="btn-container"><p>
-                  IEEE INSAT Student Branch</br>
-                  09/2023 Now INSAT, Tunis, Tunisia</br>
-                </br>
-
-                   Participation in several IEEE chapters, seeking continuous learning and professional development opportunities.
-                  </br> Engaging with IEEE courses and resources to broaden technical expertise.
-                </br>Building a strong professional network and contributing to the INSAT student branch, fostering strong collaborative relationships.
-              </p> </div>
-            </div>
-            
-
-          <div class="about-containers">
-            <div class="org-details-container color-container">
-              <div class="article-container">
-                <img src="cs.jpeg"  alt="CS"  class="organisation-img">
-              </div>
-              <h2 class="experience-sub-title project-title">Organisation Manager</h2>
-              <class="btn-container"><p>
-                  Spa'x:Student Professional Awarness by IEEE_Insat X IEEE_Enit
-                </br>
-                02/2024 -04/2024 INSAT, Tunis, Tunisia
-              </br>
-
-              </br>
-
-                Collaboration with the team and the project manager to optimize the “Suit ‘up” edition (Student professional awareness).
-                </br>Responsible for planning, organizing and managing the event schedule.
-              </br> Help students optimize their job search tools such as their CVs and LinkedIn profiles and prepare
-to job interviews.
-            </p></div>
-            </div>
-            <div class="about-containers">
-            <div class="org-details-container color-container">
-              <div class="article-container">
-                <img src="ju.jpeg" alt="JuniorEntreprise" class="organisation-img">
-              </div>
-  <h2 class="experience-sub-title project-title">Media Organisation Committee       </h2>
-              <class="btn-container"><p>
-                  Forum Junior Entreprise INSAT 2025 </br>
-                  11/2025 INSAT, Tunis, Tunisia </br>
-                </br>
-Coordinated radio appearances with local stations.
-<br>
-Spoke live on air to promote the event.
-<br>
-Acted as a spokesperson for the Media Team.                
-<br>
-Essential Contribution to Event Organization
-</p>
-<h2 class="experience-sub-title project-title">Organisation Committee Member      </h2>
-              <class="btn-container"><p>
-                  Seneca Hackathon </br>
-                  09/2025 INSAT, Tunis, Tunisia </br>
-                </br>
-  <h2 class="experience-sub-title project-title">Media Organisation Committee       </h2>
-              <class="btn-container"><p>
-                  Junior Challenge Rush 1.0 </br>
-                  04/2025 INSAT, Tunis, Tunisia </br>
-                </br>
-Creation of Impactful Video Content.
-<br>
-Development of Media and Influencer Relations.
-<br>
-Optimization of Radio Presence.
-<br>
-Essential Contribution to Event Organization.
-</p>
-
-
-              <h2 class="experience-sub-title project-title">Organisation Member       </h2>
-              <class="btn-container"><p>
-                  Forum Junior Entreprise INSAT 2024 </br>
-                  11/2024 INSAT, Tunis, Tunisia </br>
-
-                </br>
-
-                  Responsible for welcoming and managing workshop registrations.
-                </br>Contribution to the general organization of the event.
-              </p>
-
-              
-
-              </div>
-            </div>
-            <div class="about-containers">
-            <div class="org-details-container color-container">
-              <div class="article-container">
-                <img src="wie.jpeg" alt="IEEE" class="organisation-img">
-              </div>
-              <h2 class="experience-sub-title project-title">External Relations Member        </h2>
-              <class="btn-container"><p>
-                Human Library, IEEE WIE Affinity Group</br> 
-                11/2024-12/2024 INSAT, Tunis, Tunisia</br> 
-
-              </br>
-
-Identification and invitation of former INSAT students to share their experiences and professional advice.</p>
-            </div>
-            </div>
-
-            <div class="about-containers">
-            <div class="org-details-container color-container">
-              <div class="article-container">
-                <img src="tl.jpeg" alt="IEEE" class="organisation-img">
-              </div>
-              <h2 class="experience-sub-title project-title">Tomorrow Land Ambassador      </h2>
-              <class="btn-container"><p>
-                IEEE CS Chapter - ENSIT Student Branch</br> 
-                02/2025-03/2025 INSAT, Tunis, Tunisia</br>
-
-              </br>
-              
-              Representation of the Tomorrow Land event to university students.
-              Dissemination of information and promotion of the importance of participating in the event for learning AI, VR and AR
-            </br>Organization of an information session, sharing of publications and communication of necessary information.</p>
-          </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-
-        <div class="contact-info-upper-container">
-          <div class="contact-info-container">
-            <img src="email.png" alt="Email icon" class="icon contact-icon email-icon">
-            <p><a href="mailto:mariem.ouertani@insat.ucar.tn">mariem.ouertani@insat.ucar.tn</a></p>
-          </div>
-           </br>
-          <div class="contact-info-container">
-            <img src="phone.png" alt="phone icon" class="icon contact-icon">
-            <p>+21654420157</p>
-            <p>  </p>
-          </div>
-          <div class="contact-info-container">
-            <img src="position.jpg" alt="position icon" class="icon contact-icon">
-            <p>Tunis, Tunisia</a></p>
-          </div>
-        </div>
-
-       <div class="contact-info-upper-container">
-          <div class="contact-info-container">
-           
-           <div>
-  <a href="https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/" target="_blank" class="social-link">
-    <img src="linkedin.png" alt="My LinkedIn profile" class="icon">
-    <span>LinkedIn</span>
-  </a>
-</div>
-          </div>
-         <p>  </p>
-          <div class="contact-info-container">
-            
-            <div>
-  <a href="https://github.com/mariemouertani104" target="_blank" class="social-link">
-    <img src="gt.png" alt="My GitHub account" class="icon">
-    <span>GitHub</span>
-  </a>
-</div>
-          </div>
-         <p>  </p>
-          <div class="contact-info-container">
-            
-            <div>
-  <a href="https://drive.google.com/drive/folders/1qR106V_O8rXrkft0UR04ymitMivaQoqY?usp=drive_link" target="_blank" class="drive-link">
-    <img src="drrr.png" alt="My portfolio" class="icon">
-    <span>Drive</span>
-  </a>
-</div>
-        </div>         
-      </section>
-
-                  </br>
-         </br>
-<footer>  
-    <nav>
-      <div class="nav-links-container">
-        <ul class="nav-links">
-            <li><a href="#education">Education&H.Skills</a></li>
-            <li><a href="#soft">S.Skills</a></li>
-        
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#organizations">Volunteering</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <button type="button" class="icon-btn nav-toggle" id="nav-toggle"
+                aria-expanded="false" aria-controls="nav-menu"
+                aria-label="Open or close the menu" data-i18n-attr="aria-label:ui.toggleMenu">
+          <i class="bi bi-list icon-open" aria-hidden="true"></i>
+          <i class="bi bi-x-lg icon-close" aria-hidden="true"></i>
+        </button>
       </div>
     </nav>
-  
-    <br>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="intro.js"></script>
-  <script src="script.js"></script>
-  <script src="particles.js"></script>
-  <script src="app.js"></script>  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </header>
 
+  <main id="main">
+    <!-- ===================== PROFIL ===================== -->
+    <section id="profile" class="hero">
+      <div class="hero-photo">
+        <img src="mariem%20photo.jpg" alt="Portrait of Mariem Ouertani" data-i18n-attr="alt:hero.photoAlt">
+      </div>
+
+      <div class="hero-text">
+        <p class="hero-greeting" data-i18n="hero.greeting">Welcome! I'm</p>
+        <h1 class="hero-name">Mariem Ouertani</h1>
+        <p class="hero-role" data-i18n="hero.role">ICT &amp; Software Engineering Student</p>
+
+        <div class="button-group">
+          <a class="pf-btn" href="Mariem_Ouertani_Resume_2026-10.pdf" download>
+            <i class="bi bi-download" aria-hidden="true"></i>
+            <span data-i18n="hero.resumeEn">Download Resume (English)</span>
+          </a>
+          <a class="pf-btn" href="Mariem_Ouertani_CV_2026-10.pdf" download>
+            <i class="bi bi-download" aria-hidden="true"></i>
+            <span data-i18n="hero.cvFr">Download CV (French)</span>
+          </a>
+          <a class="pf-btn" href="#contact">
+            <i class="bi bi-person-lines-fill" aria-hidden="true"></i>
+            <span data-i18n="hero.contact">Contact Info</span>
+          </a>
+        </div>
+
+        <p class="hero-connect" data-i18n="hero.connect">Connect with me</p>
+        <ul class="social-list">
+          <li>
+            <a class="social-icon" href="https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/" target="_blank" rel="noopener noreferrer"
+               aria-label="LinkedIn profile" data-i18n-attr="aria-label:social.linkedin">
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a class="social-icon" href="https://github.com/mariemouertani104" target="_blank" rel="noopener noreferrer"
+               aria-label="GitHub profile" data-i18n-attr="aria-label:social.github">
+              <i class="bi bi-github" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a class="social-icon" href="https://drive.google.com/drive/folders/1qR106V_O8rXrkft0UR04ymitMivaQoqY?usp=drive_link" target="_blank" rel="noopener noreferrer"
+               aria-label="Google Drive folder" data-i18n-attr="aria-label:social.drive">
+              <i class="bi bi-folder-fill" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+
+        <a class="pf-btn hero-more" href="#about">
+          <span data-i18n="hero.viewMore">View more</span>
+          <i class="bi bi-arrow-down-circle" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== A PROPOS ===================== -->
+    <section id="about" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="about.eyebrow">Get To Know More</p>
+        <h2 class="section-title" data-i18n="about.title">About Me</h2>
+      </header>
+
+      <div class="about-layout">
+        <div class="about-photo">
+          <img src="me.png" alt="Profile picture" data-i18n-attr="alt:about.photoAlt">
+        </div>
+
+        <div class="panel about-text">
+          <p data-i18n="about.rank">Ranked 1st out of 88 students during my first year in the ICT engineering cycle at the National Institute of Applied Science and Technology (INSAT).</p>
+          <p data-i18n="about.excellence">My academic excellence is backed by a continuous drive for technical mastery. Over the past few years, I have shifted my focus toward Artificial Intelligence and Machine Learning, exploring how these technologies integrate with modern infrastructure. To support this vision, I have earned professional certifications from industry leaders including AWS, Google, IBM, and Cisco, deepening my expertise in Cloud Computing and DevOps. I further broadened this foundation through the University of Zurich's “Deep Dive into Blockchain” Summer School, where I worked with an international team on a decentralized application and ranked 4th out of 13 groups, awarded with a medal for this achievement.</p>
+
+          <h3 class="about-subtitle" data-i18n="about.coreTitle">Technical core &amp; interests</h3>
+          <ul class="about-list">
+            <li data-i18n="about.software"><strong>Software &amp; AI:</strong> Development of intelligent solutions with a focus on ML models.</li>
+            <li data-i18n="about.infra"><strong>Infrastructure:</strong> Cloud architecture (AWS), DevOps practices, and networking.</li>
+            <li data-i18n="about.iot"><strong>IoT:</strong> Connecting the physical world to digital intelligence.</li>
+            <li data-i18n="about.web"><strong>Web Development:</strong> Strong foundations in full-stack development.</li>
+          </ul>
+
+          <p data-i18n="about.leadership">Beyond technical skills, my involvement in IEEE and Junior Entreprise has sharpened my leadership and communication skills, allowing me to manage complex projects and collaborate in high-pressure environments.</p>
+          <p data-i18n="about.closing">I am always looking for new challenges where I can bridge the gap between robust ICT infrastructure and cutting-edge AI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORMATION ===================== -->
+    <section id="education" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="edu.eyebrow">Explore More About My</p>
+        <h2 class="section-title" data-i18n="edu.pathTitle">Learning Path</h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="tl-dot tl-dot--current" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></span>
+              <div>
+                <h3 class="tl-title" data-i18n="tl.insat.title">Engineering Degree in Computer Networks and Telecommunications</h3>
+                <p class="tl-org"><a href="https://insat.rnu.tn/" target="_blank" rel="noopener noreferrer" data-i18n="tl.insat.org">INSAT – National Institute of Applied Science and Technology</a></p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span data-i18n="tl.insat.date">Sep 2025 – Present</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.tunis">Tunis, Tunisia</span></li>
+            </ul>
+            <p class="tl-badge" data-i18n="tl.insat.badge">Ranked 1st of 88 · Average 15.63/20</p>
+            <ul class="tag-list"><li class="tag">IEEE</li><li class="tag">Junior Entreprise INSAT</li></ul>
+          </article>
+        </li>
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon"><i class="bi bi-award-fill" aria-hidden="true"></i></span>
+              <div>
+                <h3 class="tl-title" data-i18n="tl.uzh.title">International Summer School: Blockchain (Technology, Economics and Law)</h3>
+                <p class="tl-org"><a href="https://www.uzh.ch/en.html" target="_blank" rel="noopener noreferrer" data-i18n="tl.uzh.org">University of Zurich (UZH)</a></p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span data-i18n="tl.uzh.date">Jul 2026</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.zurich">Zurich, Switzerland</span></li>
+            </ul>
+            <p class="tl-badge" data-i18n="tl.uzh.badge">Ranked 4th of 13 groups · Medal · Grade 6/6</p>
+            <ul class="tl-list">
+              <li data-i18n="tl.uzh.b1">Deep Dive into Blockchain (7th edition): DeFi, tokenomics, DAOs and legal aspects.</li>
+              <li data-i18n="tl.uzh.b2">Led the architecture and data model of NeighbourShare, a decentralized resource-sharing DAO built on Cardano.</li>
+            </ul>
+          </article>
+        </li>
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon"><i class="bi bi-book-fill" aria-hidden="true"></i></span>
+              <div>
+                <h3 class="tl-title" data-i18n="tl.prep.title">Integrated Preparatory Cycle (MPI)</h3>
+                <p class="tl-org"><a href="https://insat.rnu.tn/" target="_blank" rel="noopener noreferrer">INSAT</a></p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span data-i18n="tl.prep.date">Sep 2023 – May 2025</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.tunis">Tunis, Tunisia</span></li>
+            </ul>
+            <p class="tl-badge" data-i18n="tl.prep.badge">With honors · Ranked 3rd of 86</p>
+            <p class="tl-desc" data-i18n="tl.prep.desc">Preparation for the national entrance to engineering schools.</p>
+          </article>
+        </li>
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon"><i class="bi bi-journal-check" aria-hidden="true"></i></span>
+              <div>
+                <h3 class="tl-title" data-i18n="tl.bac.title">Baccalaureate in Sciences</h3>
+                <p class="tl-org">Lycée Cité El Khadra</p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span data-i18n="tl.bac.date">Sep 2022 – Jun 2023</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.tunis">Tunis, Tunisia</span></li>
+            </ul>
+            <p class="tl-badge" data-i18n="tl.bac.badge">Very Good · Average 17.58/20</p>
+            <p class="tl-desc" data-i18n="tl.bac.desc">Ranked 309th of 13,603 nationally (top 2.27%).</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== COMPETENCES TECHNIQUES ===================== -->
+    <section id="hard-skills" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="common.knowMore">Get to Know More About My</p>
+        <h2 class="section-title" data-i18n="edu.skillsTitle">Technical Skills</h2>
+      </header>
+
+      <div class="skills-cards">
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-cpu-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.ai.title">AI &amp; Data</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill" data-i18n="skill.ml">Machine Learning</li>
+          <li class="pill" data-i18n="skill.dl">Deep Learning</li>
+          <li class="pill">NLP</li>
+          <li class="pill">LLMs</li>
+          <li class="pill" data-i18n="skill.agents">AI Agents</li>
+          <li class="pill" data-i18n="skill.cv">Computer Vision</li>
+          <li class="pill" data-i18n="skill.dataAnalysis">Data Analysis</li>
+          <li class="pill">SQL</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-code-slash" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.prog.title">Programming</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill">Python</li>
+          <li class="pill">NumPy</li>
+          <li class="pill">PyTorch</li>
+          <li class="pill">scikit-learn</li>
+          <li class="pill">Java</li>
+          <li class="pill">C / C++</li>
+          <li class="pill" data-i18n="skill.oop">Object-Oriented Programming</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.web.title">Web &amp; Software</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill">HTML / CSS</li>
+          <li class="pill">JavaScript</li>
+          <li class="pill">React</li>
+          <li class="pill">Bootstrap</li>
+          <li class="pill">Spring Boot</li>
+          <li class="pill">PHP / Symfony</li>
+          <li class="pill">UX/UI</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-cloud-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.cloud.title">Cloud, DevOps &amp; Networks</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill">AWS</li>
+          <li class="pill">DevOps</li>
+          <li class="pill">Linux</li>
+          <li class="pill">CCNA 1–3</li>
+          <li class="pill">Wi-Fi &amp; 5G</li>
+          <li class="pill">IoT</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-shield-lock-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.security.title">Blockchain &amp; Security</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill">Cardano</li>
+          <li class="pill">DAO</li>
+          <li class="pill" data-i18n="hs.cybersecurity">Cybersecurity</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-calculator-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.math.title">Maths &amp; Optimization</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill" data-i18n="skill.linearAlgebra">Linear Algebra</li>
+          <li class="pill" data-i18n="skill.statistics">Statistics &amp; Probability</li>
+          <li class="pill" data-i18n="hs.operationsResearch">Operations Research</li>
+          <li class="pill" data-i18n="skill.algorithms">Algorithms</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-tools" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="hs.tools.title">Tools</h3>
+          </div>
+          <ul class="pill-list">
+          <li class="pill">Git / GitHub</li>
+          <li class="pill">UiPath</li>
+          <li class="pill">SAP</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== COMPETENCES HUMAINES ===================== -->
+    <section id="soft" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="common.knowMore">Get to Know More About My</p>
+        <h2 class="section-title" data-i18n="soft.title">Soft Skills</h2>
+      </header>
+
+      <div class="soft-cards">
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-kanban-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.agile.title">Agile Methods</h3>
+          <p data-i18n="sc.agile.desc">Scrum and Kanban: iterative delivery, sprint planning and visual task tracking.</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-calendar2-check-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.org.title">Organization &amp; Leadership</h3>
+          <p data-i18n="sc.org.desc">Planned and managed event schedules and coordinated teams within IEEE and Junior Entreprise INSAT.</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-people-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.team.title">Teamwork</h3>
+          <p data-i18n="sc.team.desc">Collaborated in an international, multidisciplinary team at the University of Zurich (ranked 4th of 13).</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-mic-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.comm.title">Communication &amp; Persuasion</h3>
+          <p data-i18n="sc.comm.desc">Spokesperson for the media team, speaking live on the radio to promote Forum Junior Entreprise INSAT 2025.</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-stopwatch-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.time.title">Time &amp; Stress Management</h3>
+          <p data-i18n="sc.time.desc">Balancing top-ranked studies, internships and student commitments under pressure.</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-puzzle-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.problem.title">Problem Solving &amp; Resilience</h3>
+          <p data-i18n="sc.problem.desc">Breaking down complex problems and finding practical solutions, even in demanding environments.</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-lightbulb-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.research.title">Research &amp; Critical Thinking</h3>
+          <p data-i18n="sc.research.desc">Literature review, method comparison and rigorous evaluation of results.</p>
+        </article>
+        <article class="skill-card soft-card">
+          <span class="skill-card-icon"><i class="bi bi-rocket-takeoff-fill" aria-hidden="true"></i></span>
+          <h3 class="skill-card-title" data-i18n="sc.initiative.title">Initiative</h3>
+          <p data-i18n="sc.initiative.desc">Seizing opportunities: international programs, internships and student leadership roles.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="common.knowMore">Get to Know More About My</p>
+        <h2 class="section-title" data-i18n="exp.title">Experience</h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="tl-item">
+          <span class="tl-dot tl-dot--current" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon tl-icon--logo"><img src="sahera.png" alt="SaHera logo" data-i18n-attr="alt:logo.sahera" loading="lazy"></span>
+              <div>
+                <h3 class="tl-title" data-i18n="exp.sahera.role">Data Scientist, AI/ML Engineer (Internship)</h3>
+                <p class="tl-org"><a href="https://sahera.ca/en" target="_blank" rel="noopener noreferrer">SaHera</a></p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span>06/2026 – <span data-i18n="common.present">Present</span></span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.montreal">Montreal, Quebec, Canada</span></li>
+            </ul>
+            <p class="tl-desc" data-i18n="exp.sahera.desc">Working on machine learning and deep learning models for a FemTech health app — from literature review and multimodal dataset collection to exploratory data analysis, data preprocessing pipelines, and model training, tuning, and evaluation.</p>
+            <ul class="tag-list"><li class="tag">Python</li><li class="tag">Deep Learning</li><li class="tag">SHAP</li></ul>
+          </article>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon tl-icon--logo"><img src="iliadephoto.png" alt="Iliade Consulting logo" data-i18n-attr="alt:logo.iliade" loading="lazy"></span>
+              <div>
+                <h3 class="tl-title" data-i18n="exp.iliade.role">RPA Developer, SAP Consultant (Internship)</h3>
+                <p class="tl-org"><a href="https://www.iliadeconsulting.com/" target="_blank" rel="noopener noreferrer">Iliade Consulting</a></p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span>07/2025 – 08/2025</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.lac">Les Berges du Lac, Tunisia</span></li>
+            </ul>
+            <p class="tl-desc" data-i18n="exp.iliade.desc">Designed and developed an invoice automation robot in SAP IS-U using UiPath, applying computer vision techniques to optimize interactions with the SAP interface, along with project analysis and management.</p>
+            <ul class="tag-list"><li class="tag">UiPath</li><li class="tag">SAP IS-U</li></ul>
+          </article>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon tl-icon--logo"><img src="cs.jpeg" alt="IEEE Computer Society logo" data-i18n-attr="alt:logo.ieeeCs" loading="lazy"></span>
+              <div>
+                <h3 class="tl-title" data-i18n="exp.cs.title">Front-End Developer, Project Department</h3>
+                <p class="tl-org" data-i18n="exp.cs.org">IEEE Computer Society INSAT SBC</p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span>01/2025 – 05/2025</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></li>
+            </ul>
+            <p class="tl-desc" data-i18n="exp.cs.desc">Contributed to the INSAT Platform chatbot as a front-end developer, building the interface in ReactJS alongside the chapter's project team.</p>
+            <ul class="tag-list"><li class="tag">ReactJS</li></ul>
+          </article>
+        </li>
+
+        <li class="tl-item">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card">
+            <div class="tl-head">
+              <span class="tl-icon tl-icon--logo"><img src="ATB.png" alt="ATB logo" data-i18n-attr="alt:logo.atb" loading="lazy"></span>
+              <div>
+                <h3 class="tl-title" data-i18n="exp.atb.title">Financial Services Intern</h3>
+                <p class="tl-org">Arab Tunisian Bank (ATB)</p>
+              </div>
+            </div>
+            <ul class="tl-meta">
+              <li><i class="bi bi-calendar3" aria-hidden="true"></i><span>07/2024 (1 <span data-i18n="common.month">month</span>)</span></li>
+              <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.tunis">Tunis, Tunisia</span></li>
+            </ul>
+            <p class="tl-desc" data-i18n="exp.atb.desc">First hands-on experience in client servicing and professional communication in a banking environment.</p>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== PROJETS ===================== -->
+    <section id="projects" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="proj.eyebrow">Browse My Recent</p>
+        <h2 class="section-title" data-i18n="proj.title">Projects</h2>
+      </header>
+
+      <div class="project-grid">
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-shield-lock-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.anc.title">Adversarial Neural Cryptography (GANs)</h3>
+          </div>
+          <p class="info-meta">01/2026 – 06/2026</p>
+          <p class="project-desc" data-i18n="proj.anc.desc">Implemented the Alice-Bob-Eve architecture based on the research paper "Learning to Protect Communications with Adversarial Neural Cryptography". Built an end-to-end encryption system where two neural networks learn a robust communication protocol by competing against an eavesdropper network, without relying on classical cryptographic algorithms. Developed as a team project with three other students.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag" data-i18n="tag.deepLearning">Deep Learning</li>
+            <li class="tag">GANs</li>
+            <li class="tag">PyTorch</li>
+            <li class="tag" data-i18n="tag.cybersecurity">Cybersecurity</li>
+          </ul>
+          <p class="stack-text"><strong data-i18n="proj.stack">Tech stack:</strong> Python, PyTorch, NumPy, Scikit-learn.</p>
+          <div class="button-group button-group--start">
+            <a class="pf-btn" href="https://github.com/mariemouertani104/PPP_Adversarial_Neural_Cryptography.git" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i><span data-i18n="common.code">Code</span></a>
+          </div>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-phone-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.cyber.title">Cybersecurity Audit &amp; Mobile Traffic Analysis (Android)</h3>
+          </div>
+          <p class="info-meta">09/2025 – 12/2025</p>
+          <p class="project-desc" data-i18n="proj.cyber.desc">Conducted a full security audit of Android mobile network traffic. Captured and analyzed packets with PCAPDroid, Wireshark and TShark to inspect QUIC, TLS 1.3 and MQTT protocols, assess encryption robustness and flag potential vulnerabilities in app-level communications.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag" data-i18n="tag.cybersecurity">Cybersecurity</li>
+            <li class="tag">Android</li>
+            <li class="tag">Wireshark</li>
+          </ul>
+          <p class="stack-text"><strong data-i18n="proj.stack">Tech stack:</strong> PCAPDroid, Wireshark, TShark.</p>
+          <div class="button-group button-group--start">
+            <a class="pf-btn" href="https://github.com/mariemouertani104/Projet-de-R-seaux-IP.git" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i><span data-i18n="common.code">Code</span></a>
+          </div>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-cpu-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.agri.title">Smart Agri-Sensor: IoT &amp; Edge AI Solution</h3>
+          </div>
+          <p class="info-meta">11/2025 – 12/2025</p>
+          <p class="project-desc" data-i18n="proj.agri.desc">Designed an ESP32-based smart agriculture sensor node that runs on-device Edge AI for rule-based classification of field conditions. Data is exchanged over MQTT and visualized through Node-RED, with the hardware engineered for up to 40 days of autonomous battery life.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag">IoT</li>
+            <li class="tag">Edge AI</li>
+            <li class="tag">ESP32</li>
+            <li class="tag">MQTT</li>
+          </ul>
+          <p class="stack-text"><strong data-i18n="proj.stack">Tech stack:</strong> ESP32, MQTT, Node-RED.</p>
+          <div class="button-group button-group--start">
+            <a class="pf-btn" href="https://github.com/mariemouertani104/Smart-device-project.git" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i><span data-i18n="common.code">Code</span></a>
+          </div>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-bar-chart-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.supply.title">Supply Chain Optimization Dashboard (Operations Research)</h3>
+          </div>
+          <p class="info-meta">09/2025 – 12/2025</p>
+          <p class="project-desc" data-i18n="proj.supply.desc">Modeled a multi-stage supply chain problem with linear programming to minimize distribution costs under capacity and demand constraints, then built an interactive dashboard to visualize the optimal distribution plan and the trade-offs between cost, capacity and service level.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag" data-i18n="hs.operationsResearch">Operations Research</li>
+            <li class="tag">Linear Programming</li>
+          </ul>
+          <div class="button-group button-group--start">
+            <a class="pf-btn" href="https://github.com/mariemouertani104/Projet-de-recherche-operationnelle.git" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i><span data-i18n="common.code">Code</span></a>
+          </div>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-person-badge-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.cvintel.title">CVIntelligence</h3>
+          </div>
+          <p class="info-meta">04/2026 – 06/2026</p>
+          <p class="project-desc" data-i18n="proj.cvintel.desc">Multi-agent recruitment system built around three cooperating agents — Extractor, Matcher &amp; Ranker, and Reporter — combining generative AI with an agentic pipeline to parse resumes, rank candidates against job requirements and generate structured reports.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag" data-i18n="skill.agents">AI Agents</li>
+            <li class="tag">GenAI</li>
+            <li class="tag">Python</li>
+          </ul>
+          <p class="stack-text"><strong data-i18n="proj.stack">Tech stack:</strong> Python, Google GenAI, PyMuPDF, ReportLab, HTML/Tailwind.</p>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-activity" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.cardio.title">CardioSight-AI</h3>
+          </div>
+          <p class="info-meta">04/2026 – 06/2026</p>
+          <p class="project-desc" data-i18n="proj.cardio.desc">Dual ECG analysis platform combining a diagnosis model (ResNet1D with Focal Loss and SMOTE, 98.58% accuracy) and a biometric identification model ("BiometricNet", 92.35% Top-1 accuracy), with Gemini 2.5 Flash integrated to generate plain-language clinical explanations.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag" data-i18n="tag.deepLearning">Deep Learning</li>
+            <li class="tag">LLM</li>
+            <li class="tag">ResNet1D</li>
+          </ul>
+          <p class="stack-text"><strong data-i18n="proj.stack">Tech stack:</strong> PyTorch, Gemini 2.5 Flash.</p>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.semantic.title">SemanticResearcher</h3>
+          </div>
+          <p class="info-meta">04/2026 – 06/2026</p>
+          <p class="project-desc" data-i18n="proj.semantic.desc">Autonomous research agent built on a hierarchical Planner / Researcher / Critic architecture following the ReAct pattern, able to plan a research question, gather and critique sources, and synthesize a structured answer with minimal supervision.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag" data-i18n="skill.agents">AI Agents</li>
+            <li class="tag">ReAct</li>
+            <li class="tag">LLM</li>
+          </ul>
+          <p class="stack-text"><strong data-i18n="proj.stack">Tech stack:</strong> Python, Gemini.</p>
+        </article>
+
+        <article class="skill-card project-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-rocket-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="proj.cubesat.title">UKF-Based CubeSat Attitude Estimation</h3>
+          </div>
+          <p class="info-meta">04/2026 – 05/2026</p>
+          <p class="project-desc" data-i18n="proj.cubesat.desc">Compared an Unscented Kalman Filter against an Extended Kalman Filter for CubeSat attitude estimation, cutting the pointing error from 23.4° to 1.3° and reaching a 5-out-of-5 score on anomaly detection scenarios.</p>
+          <button type="button" class="project-more-btn" aria-expanded="false">
+            <span class="more-label" data-i18n="common.seeMore">See more</span>
+            <span class="less-label" data-i18n="common.seeLess" hidden>See less</span>
+          </button>
+          <ul class="tag-list">
+            <li class="tag">MATLAB</li>
+            <li class="tag">Kalman Filter</li>
+            <li class="tag">Aerospace</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== AWARDS ===================== -->
+    <section id="awards" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="awards.eyebrow">Celebrate My</p>
+        <h2 class="section-title" data-i18n="awards.title">Awards &amp; Global Experience</h2>
+      </header>
+
+      <article class="panel award-panel">
+        <div class="tl-head">
+          <span class="tl-icon"><i class="bi bi-award-fill" aria-hidden="true"></i></span>
+          <div>
+            <h3 class="tl-title" data-i18n="awards.uzh.title">Best Project Award — NeighbourShare</h3>
+            <p class="tl-org" data-i18n="awards.uzh.org">University of Zurich (UZH) — Deep Dive into Blockchain Summer School</p>
+          </div>
+        </div>
+        <ul class="tl-meta">
+          <li><i class="bi bi-calendar3" aria-hidden="true"></i><span data-i18n="tl.uzh.date">Jul 2026</span></li>
+          <li><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span data-i18n="loc.zurich">Zurich, Switzerland</span></li>
+        </ul>
+        <p class="tl-badge" data-i18n="tl.uzh.badge">Ranked 4th of 13 groups · Medal · Grade 6/6</p>
+        <p data-i18n="awards.uzh.desc">Over one intensive week, I joined an international, multidisciplinary team to design NeighbourShare, a decentralized resource-sharing DAO built on Cardano. I led the system architecture and data model, contributed to the frontend integration, and delivered the final presentation — finishing 4th out of 13 teams and earning a medal for the project.</p>
+
+        <div class="award-gallery">
+          <figure class="award-photo">
+            <img src="MariemPhoto.jpeg" alt="" loading="lazy" data-i18n-attr="alt:awards.photo1Alt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <figure class="award-photo">
+            <img src="ZurichTeam.jpeg" alt="" loading="lazy" data-i18n-attr="alt:awards.photo2Alt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <figure class="award-photo">
+            <img src="Switzerland.jpeg" alt="" loading="lazy" data-i18n-attr="alt:awards.photo3Alt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== BENEVOLAT ===================== -->
+    <section id="organizations" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="vol.eyebrow">Get To Know My</p>
+        <h2 class="section-title" data-i18n="vol.title">Volunteering</h2>
+      </header>
+
+      <div class="vol-cards">
+        <article class="skill-card vol-card">
+          <figure class="award-photo">
+            <img src="ieee.jpeg" alt="" loading="lazy" data-i18n-attr="alt:vol.ieee.photoAlt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-people-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="vol.role.member">Member</h3>
+          </div>
+          <p class="info-org" data-i18n="vol.ieee.org">IEEE INSAT Student Branch</p>
+          <p class="info-meta">09/2023 – <span data-i18n="common.present">Present</span> | <span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></p>
+          <p data-i18n="vol.ieee.desc">Active member since 2023, engaging with IEEE chapters, courses and resources to grow technical expertise and build a strong professional network within the INSAT student community.</p>
+        </article>
+
+        <article class="skill-card vol-card">
+          <figure class="award-photo">
+            <img src="SPA'x.jpg" alt="" loading="lazy" data-i18n-attr="alt:vol.spax.photoAlt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-calendar2-check-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="vol.role.orgManager">Organization Manager</h3>
+          </div>
+          <p class="info-org" data-i18n="vol.spax.org">Spa'X: Student Professional Awareness by IEEE INSAT x IEEE ENIT</p>
+          <p class="info-meta">02/2024 – 04/2024 | <span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></p>
+          <p data-i18n="vol.spax.desc">Planned and managed the event schedule, helping students sharpen their CVs and LinkedIn profiles and prepare for job interviews.</p>
+        </article>
+
+        <article class="skill-card vol-card">
+          <figure class="award-photo">
+            <img src="ju.jpeg" alt="" loading="lazy" data-i18n-attr="alt:vol.media2025.photoAlt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-mic-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="vol.role.mediaCommittee">Media Organization Committee</h3>
+          </div>
+          <p class="info-org" data-i18n="vol.media2025.org">Forum Junior Entreprise INSAT 2025</p>
+          <p class="info-meta">11/2025 | <span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></p>
+          <p data-i18n="vol.media2025.desc">Coordinated radio appearances and acted as spokesperson for the Media Team, speaking live on air to promote the forum.</p>
+        </article>
+
+        <article class="skill-card vol-card">
+          <figure class="award-photo">
+            <img src="tw.jpg" alt="" loading="lazy" data-i18n-attr="alt:vol.twise.photoAlt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-globe2" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="vol.twise.title">Organization Committee Member</h3>
+          </div>
+          <p class="info-org" data-i18n="vol.twise.org">TWISE Night</p>
+          <p class="info-meta">09/2025 | <span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></p>
+          <p data-i18n="vol.twise.desc">Helped organize TWISE Night, the only event hosted on the African continent among 25 countries and roughly 400 sites worldwide.</p>
+        </article>
+
+        <article class="skill-card vol-card">
+          <figure class="award-photo">
+            <img src="seneca.png" alt="" loading="lazy" data-i18n-attr="alt:vol.seneca.photoAlt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-code-square" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="vol.role.committeeMember">Organization Committee Member</h3>
+          </div>
+          <p class="info-org" data-i18n="vol.seneca.org">Seneca Hacks 2025, Seneca Innovation Center</p>
+          <p class="info-meta">09/2025 | <span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></p>
+          <p data-i18n="vol.seneca.desc">Supported hackathon logistics and participant experience as part of the organization committee.</p>
+        </article>
+
+        <article class="skill-card vol-card">
+          <figure class="award-photo">
+            <img src="tl.jpeg" alt="" loading="lazy" data-i18n-attr="alt:vol.tl.photoAlt" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;">
+            <span class="award-photo-fallback" hidden><i class="bi bi-image" aria-hidden="true"></i></span>
+          </figure>
+          <div class="skill-card-head">
+            <span class="skill-card-icon"><i class="bi bi-megaphone-fill" aria-hidden="true"></i></span>
+            <h3 class="skill-card-title" data-i18n="vol.role.ambassador">Tomorrow Land Ambassador</h3>
+          </div>
+          <p class="info-org" data-i18n="vol.tl.org">IEEE CS Chapter – ENSIT Student Branch</p>
+          <p class="info-meta">02/2025 – 03/2025 | <span data-i18n="loc.insat">INSAT, Tunis, Tunisia</span></p>
+          <p data-i18n="vol.tl.desc">Represented the Tomorrow Land event to university students, promoting participation in learning AI, VR and AR.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section">
+      <header class="section-heading">
+        <p class="section-eyebrow" data-i18n="contact.eyebrow">Get in Touch</p>
+        <h2 class="section-title" data-i18n="contact.title">Contact Me</h2>
+        <p class="contact-lead" data-i18n="contact.lead">Open to internships, collaborations and opportunities in AI, cloud and software development.</p>
+      </header>
+
+      <div class="contact-cards">
+        <a class="skill-card contact-card" href="mailto:mariem.ouertani@insat.ucar.tn">
+          <span class="skill-card-icon"><i class="bi bi-envelope-fill" aria-hidden="true"></i></span>
+          <span class="contact-label" data-i18n="contact.email">Email</span>
+          <span class="contact-value">mariem.ouertani@insat.ucar.tn</span>
+        </a>
+        <a class="skill-card contact-card" href="tel:+21654420157">
+          <span class="skill-card-icon"><i class="bi bi-telephone-fill" aria-hidden="true"></i></span>
+          <span class="contact-label" data-i18n="contact.phone">Phone</span>
+          <span class="contact-value">+216 54 420 157</span>
+        </a>
+        <div class="skill-card contact-card">
+          <span class="skill-card-icon"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></span>
+          <span class="contact-label" data-i18n="contact.location">Location</span>
+          <span class="contact-value" data-i18n="loc.tunis">Tunis, Tunisia</span>
+        </div>
+      </div>
+
+      <div class="contact-actions">
+        <a class="pf-btn" href="mailto:mariem.ouertani@insat.ucar.tn">
+          <i class="bi bi-send-fill" aria-hidden="true"></i>
+          <span data-i18n="contact.send">Send me an email</span>
+        </a>
+        <button type="button" class="pf-btn" id="copy-email" data-email="mariem.ouertani@insat.ucar.tn">
+          <i class="bi bi-clipboard" aria-hidden="true"></i>
+          <span data-i18n="contact.copy">Copy email</span>
+        </button>
+      </div>
+
+        <ul class="round-social">
+          <li><a class="round-btn" href="https://www.linkedin.com/in/mariem-ouertani-2a1b592a4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" data-i18n-attr="aria-label:social.linkedin"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li>
+          <li><a class="round-btn" href="https://github.com/mariemouertani104" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" data-i18n-attr="aria-label:social.github"><i class="bi bi-github" aria-hidden="true"></i></a></li>
+          <li><a class="round-btn" href="https://drive.google.com/drive/folders/1qR106V_O8rXrkft0UR04ymitMivaQoqY?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Google Drive folder" data-i18n-attr="aria-label:social.drive"><i class="bi bi-folder-fill" aria-hidden="true"></i></a></li>
+        </ul>
+    </section>
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-name">Mariem Ouertani</p>
+
+
+
+      <a class="pf-btn" href="#profile">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        <span data-i18n="footer.top">Back to top</span>
+      </a>
+
+      <p class="footer-note" data-i18n="footer.rights">© 2026 Mariem Ouertani. All rights reserved.</p>
+      <p class="footer-love">
+        <span data-i18n="footer.madeWith">Made with</span>
+        <i class="bi bi-heart-fill footer-heart" aria-hidden="true"></i>
+        <span data-i18n="footer.madeIn">in Tunisia</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts (defer : exécutés dans l'ordre, après le chargement du HTML) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="translations.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
+</html>
